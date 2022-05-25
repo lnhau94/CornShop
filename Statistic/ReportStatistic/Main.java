@@ -12,10 +12,10 @@ public class Main extends Application {
     public void start(Stage primaryStage){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(new File("src/Statistic/ReportStatistic/View/RevenueStatistic.fxml").toURI().toURL());
+            fxmlLoader.setLocation(new File("Statistic/ReportStatistic/View/RevenueStatistic.fxml").toURI().toURL());
             Parent root = (Parent) fxmlLoader.load();
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(new File("src/Statistic/ReportStatistic/View/CSS/RevenueStatistic.css").toURI().toURL().toExternalForm());
+            scene.getStylesheets().add(new File("Statistic/ReportStatistic/View/CSS/RevenueStatistic.css").toURI().toURL().toExternalForm());
             primaryStage.setTitle("REVENUE STATISTIC");
             primaryStage.setScene(scene);
             primaryStage.show();

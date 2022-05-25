@@ -12,10 +12,10 @@ public class Main extends Application{
     public void start(Stage primaryStage){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(new File("src/Statistic/ReportEndDay/View/ReportEndDay.fxml").toURI().toURL());
+            fxmlLoader.setLocation(new File("Statistic/ReportEndDay/View/ReportEndDay.fxml").toURI().toURL());
             Parent root = (Parent) fxmlLoader.load();
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(new File("src/Statistic/ReportEndDay/View/CSS/ReportEndDay.css").toURI().toURL().toExternalForm());
+            scene.getStylesheets().add(new File("Statistic/ReportEndDay/View/CSS/ReportEndDay.css").toURI().toURL().toExternalForm());
             primaryStage.setTitle("END OF DAY REPORT");
             primaryStage.setScene(scene);
             primaryStage.show();
