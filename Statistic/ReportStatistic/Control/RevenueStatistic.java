@@ -41,13 +41,13 @@ public class RevenueStatistic extends ScreenManager implements Initializable {
     private TableColumn<Revenue, String> colDate;
 
     @FXML
-    private TableColumn<Revenue, String> colProduct;
+    private TableColumn<Revenue, Integer> colProduct;
 
     @FXML
-    private TableColumn<Revenue, String> colOrder;
+    private TableColumn<Revenue, Integer> colOrder;
 
     @FXML
-    private TableColumn<Revenue, String> colPrice;
+    private TableColumn<Revenue, Integer> colPrice;
 
     @FXML
     private TableView<Revenue> tableProduct;
@@ -66,7 +66,7 @@ public class RevenueStatistic extends ScreenManager implements Initializable {
         try {
             while (rs.next()) {
                 try {
-                    listRevenue.add(new Revenue(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+                    listRevenue.add(new Revenue(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4)));
                 } catch (SQLException e) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);
@@ -145,9 +145,9 @@ public class RevenueStatistic extends ScreenManager implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         colDate.setCellValueFactory(new PropertyValueFactory<Revenue, String>("date"));
-        colProduct.setCellValueFactory(new PropertyValueFactory<Revenue, String>("numProduct"));
-        colOrder.setCellValueFactory(new PropertyValueFactory<Revenue, String>("numOrder"));
-        colPrice.setCellValueFactory(new PropertyValueFactory<Revenue, String>("totalPrice"));
+        colProduct.setCellValueFactory(new PropertyValueFactory<Revenue, Integer>("numProduct"));
+        colOrder.setCellValueFactory(new PropertyValueFactory<Revenue, Integer>("numOrder"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<Revenue, Integer>("totalPrice"));
         if (beginTime != null && lastTime != null) {
             try {
                 startDate.setValue(beginTime);
