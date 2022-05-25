@@ -53,10 +53,10 @@ public class ProductStatistic extends ScreenManager implements Initializable{
     private TableColumn<Prod, String> colorProduct;
 
     @FXML
-    private TableColumn<Prod, String> priceProduct;
+    private TableColumn<Prod, Integer> priceProduct;
 
     @FXML
-    private TableColumn<Prod, String> qtyProduct;
+    private TableColumn<Prod, Integer> qtyProduct;
 
     @FXML
     private TableView<Prod> tableProduct;
@@ -76,7 +76,7 @@ public class ProductStatistic extends ScreenManager implements Initializable{
             while (rs.next()) {
                 try {
                     listProd.add(new Prod(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-                            rs.getString(5), rs.getString(6), rs.getString(7)));
+                            rs.getString(5), rs.getInt(6), rs.getInt(7)));
                 } catch (SQLException e) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);
@@ -162,8 +162,8 @@ public class ProductStatistic extends ScreenManager implements Initializable{
         catProduct.setCellValueFactory(new PropertyValueFactory<Prod, String>("productCategory"));
         sizeProduct.setCellValueFactory(new PropertyValueFactory<Prod, String>("productSize"));
         colorProduct.setCellValueFactory(new PropertyValueFactory<Prod, String>("productColor"));
-        priceProduct.setCellValueFactory(new PropertyValueFactory<Prod, String>("productPrice"));
-        qtyProduct.setCellValueFactory(new PropertyValueFactory<Prod, String>("productQty"));
+        priceProduct.setCellValueFactory(new PropertyValueFactory<Prod, Integer>("productPrice"));
+        qtyProduct.setCellValueFactory(new PropertyValueFactory<Prod, Integer>("productQty"));
         if (beginTime != null && lastTime != null) {
             try {
                 startDate.setValue(beginTime);
