@@ -1,0 +1,41 @@
+package Entity;
+
+import java.sql.*;
+
+public class DAO {
+    private static String connectURL = "jdbc:sqlserver://;" +
+            "serverName=localhost;" +
+            "databaseName=cornshop;" +
+            "encrypt=true;trustServerCertificate=true";
+
+    private static String DBuser = "admin";
+    private static String DBpass = "123456";
+
+
+    private static Connection connect;
+    private static Statement stmt;
+
+    public static ResultSet executeQuery(String sqlQuery){
+        ResultSet result = null;
+        try {
+            connect = DriverManager.getConnection(connectURL,DBuser,DBpass);
+            stmt= connect.createStatement();
+            result = stmt.executeQuery(sqlQuery);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    public static void execute(String sqlQuery) throws SQLException {
+        connect = DriverManager.getConnection(connectURL,DBuser,DBpass);
+        stmt= connect.createStatement();
+        stmt.execute(sqlQuery);
+    }
+
+    public static PreparedStatement getPrepareStatement(String sqlQuery) throws SQLException {
+        connect = DriverManager.getConnection(connectURL,DBuser,DBpass);
+        return connect.prepareStatement(sqlQuery);
+    }
+
+}
