@@ -2,33 +2,15 @@ package Statistic.ReportStatistic.Model;
 
 public class Revenue {
     private String date;
-    private String numOrder;
-    private String numProduct;
-    private String totalPrice;
+    private int numOrder;
+    private int numProduct;
+    private int totalPrice;
     public Revenue() {
-    } 
-    public Revenue(String date, String numOrder, String numProduct, String totalPrice) {
+    }
+    public Revenue(String date, int numOrder, int numProduct, int totalPrice) {
         this.date = date;
         this.numOrder = numOrder;
         this.numProduct = numProduct;
-        this.totalPrice = totalPrice;
-    }
-    public String getNumOrder() {
-        return numOrder;
-    }
-    public void setNumOrder(String numOrder) {
-        this.numOrder = numOrder;
-    }
-    public String getNumProduct() {
-        return numProduct;
-    }
-    public void setNumProduct(String numProduct) {
-        this.numProduct = numProduct;
-    }
-    public String getTotalPrice() {
-        return totalPrice;
-    }
-    public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
     }
     public String getDate() {
@@ -37,4 +19,23 @@ public class Revenue {
     public void setDate(String date) {
         this.date = date;
     }
+    public int getNumOrder() {
+        return numOrder;
+    }
+    public void setNumOrder(int numOrder) {
+        this.numOrder = numOrder;
+    }
+    public int getNumProduct() {
+        return numProduct;
+    }
+    public void setNumProduct(int numProduct) {
+        this.numProduct = numProduct;
+    }
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    } 
+    
 }

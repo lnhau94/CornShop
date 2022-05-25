@@ -3,10 +3,10 @@ package Statistic.ReportStatistic.Model;
 public class Cate {
     private String categoryId;
     private String categoryName;
-    private String categoryQty;
+    private int categoryQty;
     public Cate() {
     }
-    public Cate(String categoryId, String categoryName, String categoryQty) {
+    public Cate(String categoryId, String categoryName, int categoryQty) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.categoryQty = categoryQty;
@@ -23,10 +23,10 @@ public class Cate {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
-    public String getCategoryQty() {
+    public int getCategoryQty() {
         return categoryQty;
     }
-    public void setCategoryQty(String categoryQty) {
+    public void setCategoryQty(int categoryQty) {
         this.categoryQty = categoryQty;
     }  
 }

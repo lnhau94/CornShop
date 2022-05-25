@@ -6,12 +6,12 @@ public class Prod {
     private String productCategory;
     private String productSize;
     private String productColor;
-    private String productPrice;
-    private String productQty;
+    private int productPrice;
+    private int productQty;
     public Prod() {
     }
     public Prod(String productId, String productName, String productCategory, String productSize, String productColor,
-            String productPrice, String productQty) {
+            int productPrice, int productQty) {
         this.productId = productId;
         this.productName = productName;
         this.productCategory = productCategory;
@@ -50,16 +50,16 @@ public class Prod {
     public void setProductColor(String productColor) {
         this.productColor = productColor;
     }
-    public String getProductPrice() {
+    public int getProductPrice() {
         return productPrice;
     }
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(int productPrice) {
         this.productPrice = productPrice;
     }
-    public String getProductQty() {
+    public int getProductQty() {
         return productQty;
     }
-    public void setProductQty(String productQty) {
+    public void setProductQty(int productQty) {
         this.productQty = productQty;
     }
 }

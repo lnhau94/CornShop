@@ -44,7 +44,7 @@ public class CategoryStatistic extends ScreenManager implements Initializable {
     private TableColumn<Cate, String> nameCategory;
 
     @FXML
-    private TableColumn<Cate, String> qtyCategory;
+    private TableColumn<Cate, Integer> qtyCategory;
 
     @FXML
     private TableView<Cate> tableProduct;
@@ -63,7 +63,7 @@ public class CategoryStatistic extends ScreenManager implements Initializable {
         try {
             while (rs.next()) {
                 try {
-                    listCate.add(new Cate(rs.getString(1), rs.getString(2), rs.getString(3)));
+                    listCate.add(new Cate(rs.getString(1), rs.getString(2), rs.getInt(3)));
                 } catch (SQLException e) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);
@@ -138,7 +138,7 @@ public class CategoryStatistic extends ScreenManager implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         idCategory.setCellValueFactory(new PropertyValueFactory<Cate, String>("categoryId"));
         nameCategory.setCellValueFactory(new PropertyValueFactory<Cate, String>("categoryName"));
-        qtyCategory.setCellValueFactory(new PropertyValueFactory<Cate, String>("categoryQty"));
+        qtyCategory.setCellValueFactory(new PropertyValueFactory<Cate, Integer>("categoryQty"));
         if (beginTime != null && lastTime != null) {
             try {
                 startDate.setValue(beginTime);
