@@ -8,6 +8,6 @@ public class Model {
     public static ObservableList<Account> accounts;
 
     public void getData(){
-        DAO.executeQuery()
+        //DAO.executeQuery()
     }
 }
