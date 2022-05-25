@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.AccountManager.Controller">
+   <children>
+      <TableView editable="true" layoutX="17.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="288.0" prefWidth="965.0">
+        <columns>
+          <TableColumn maxWidth="113.99999237060547" minWidth="70.0" prefWidth="98.0" resizable="false" text="No" />
+          <TableColumn minWidth="100.0" prefWidth="284.33331298828125" resizable="false" text="Account" />
+            <TableColumn minWidth="100.0" prefWidth="309.0" resizable="false" text="Password" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="310.0" resizable="false" text="Staff" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label fx:id="header" layoutX="19.0" layoutY="17.0" prefHeight="40.0" prefWidth="957.0" text="ACCOUNT MANAGER" />
+   </children>
+</AnchorPane>
