@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-public class Account {
+public class Account implements DBQuery{
     private int id;
     private String username;
     private int employeeId;
@@ -47,4 +47,26 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String toInsertQuery() {
+        return "Insert into Account(USERNAME, USERPASS, EMPLOYEEID) " +
+                "VALUES(" +
+                "'"+this.getUsername()+"', " +
+                "'"+this.getPassword()+"', " +
+                "'"+this.getEmployeeId()+"'" +
+                ")";
+    }
+    public String toUpdateQuery() {
+        return "Update Account set " +
+                "USERNAME = '"+this.getUsername()+ "', " +
+                "USERPASS = '"+this.getPassword()+ "', " +
+                "EMPLOYEEID = '"+this.getEmployeeId()+ "' "+
+                "where id = '"+this.id+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "Delete from Account where id = '"+this.id+"'";
+    }
+
 }
