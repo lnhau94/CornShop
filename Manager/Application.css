@@ -1,0 +1,122 @@
+.header{
+    -fx-background-color: linear-gradient(from 0px 0px to 50px 100px, #061700, #52c234);
+    -fx-background-radius: 12;
+    -fx-text-fill: #fff;
+    -fx-alignment: center;
+    -fx-font-weight: 700;
+    -fx-font-size: 20;
+    -fx-effect: dropshadow(three-pass-box, #AA3A38, 3,0.0,1,1);
+}
+
+.table-view .label{
+    -fx-background-color: #52c234;
+    -fx-text-fill: #fff;
+    -fx-font-weight: 700;
+    -fx-font-size: 16;
+}
+
+.table-view{
+    -fx-background-color: #fff ;
+    -fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);
+}
+
+.root{
+    -fx-background-color: linear-gradient(from 0px 0px to 100px 400px, #52c234,#ffffff);
+}
+.controlBn {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #52c234;
+    -fx-border-width: 2;
+    -fx-pref-height: 50;
+    -fx-pref-width: 75;
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);
+}
+
+.button {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #52c234;
+    -fx-border-width: 2;
+    -fx-pref-height: 35;
+    -fx-pref-width: 75;
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);
+}
+.button:hover{
+    -fx-background-color: #52c234;
+}
+
+.TextFieldInput{
+    -fx-background-color: #fff;
+    -fx-pref-width: 200;
+    -fx-background-radius: 12;
+    -fx-text-fill: #52c234;
+    -fx-font-weight: 600;
+    -fx-font-size: 14;
+    -fx-border-color: #52c234;
+    -fx-border-radius: 12;
+}
+
+.LabelTilte{
+    -fx-background-color: #fff;
+    -fx-pref-width: 150;
+    -fx-pref-height: 35;
+    -fx-text-fill: #52c234;
+    -fx-font-weight: 700;
+}
+
+.nameLbl{
+    -fx-background-color: #fff;
+    -fx-background-radius: 12;
+    -fx-alignment: center;
+    -fx-pref-width: 200;
+    -fx-pref-height: 35;
+    -fx-text-fill: #52c234;
+    -fx-font-weight: 700;
+}
+
+
+.alert{
+    -fx-font-size: 16px;
+
+}
+.alert .label{
+    -fx-text-fill: #c81d25;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+.alert .image{
+    -fx-effect: dropshadow(three-pass-box, #ba181b,15,0.5,-2,2);
+}
+.alert .button{
+    -fx-background-color: #ffbe0b;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, #8d99ae,10,0,1,0);
+    -fx-text-fill: #ffff;
+    -fx-font-weight: 700;
+    -fx-font-size: 18px;
+}
+.alert .button:hover{
+    -fx-background-color: tomato;
+}
+
+.delLbl{
+    -fx-background-radius: 12;
+    -fx-alignment: center;
+    -fx-pref-width: 350;
+    -fx-pref-height: 30;
+    -fx-text-fill: #ff0000;
+    -fx-font-weight: 700;
+}
+
+.confirmLbl{
+    -fx-background-radius: 12;
+    -fx-alignment: center;
+    -fx-pref-width: 300;
+    -fx-pref-height: 30;
+    -fx-font-size: 16;
+    -fx-text-fill: #ff0000;
+    -fx-font-weight: 700;
+}

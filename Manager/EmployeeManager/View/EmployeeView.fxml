@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.EmployeeManager.Controller.MainController">
+   <children>
+      <TableView fx:id="empTab" editable="true" layoutX="17.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="288.0" prefWidth="966.0" stylesheets="@../../Application.css">
+         <columns>
+            <TableColumn fx:id="noCol" maxWidth="113.99999237060547" minWidth="70.0" prefWidth="98.0" resizable="false" text="No" />
+            <TableColumn fx:id="idCol" minWidth="100.0" prefWidth="142.0" resizable="false" text="EmployeeId" />
+            <TableColumn fx:id="nameCol" minWidth="100.0" prefWidth="238.0" resizable="false" text="Name" />
+            <TableColumn fx:id="phoneCol" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="164.0" resizable="false" text="Phone" />
+            <TableColumn fx:id="posCol" maxWidth="1.7976931348623157E308" minWidth="62.0" prefWidth="176.0" resizable="false" text="Position" />
+            <TableColumn fx:id="genderCol" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="142.0" resizable="false" text="Gender" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label fx:id="header" layoutX="19.0" layoutY="17.0" prefHeight="40.0" prefWidth="965.0" styleClass="header" stylesheets="@../../Application.css" text="Employee Manager" />
+      <Button layoutX="330.0" layoutY="433.0" mnemonicParsing="false" onAction="#createNewEmployee" prefHeight="46.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Icon/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="456.0" layoutY="433.0" mnemonicParsing="false" onAction="#editEmployee" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Icon/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="576.0" layoutY="433.0" mnemonicParsing="false" onAction="#removeEmloyee" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Icon/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
