@@ -8,9 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.EmployeeManager.Controller.MainController">
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.EmployeeManager.Controller.MainController">
    <children>
-      <TableView fx:id="empTab" editable="true" layoutX="17.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="288.0" prefWidth="966.0" stylesheets="@../../Application.css">
+      <TableView fx:id="empTab" editable="true" layoutX="17.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="323.0" prefWidth="966.0" stylesheets="@../../Application.css">
          <columns>
             <TableColumn fx:id="noCol" maxWidth="113.99999237060547" minWidth="70.0" prefWidth="98.0" resizable="false" text="No" />
             <TableColumn fx:id="idCol" minWidth="100.0" prefWidth="142.0" resizable="false" text="EmployeeId" />

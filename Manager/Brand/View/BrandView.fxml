@@ -39,7 +39,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="576.0" layoutY="433.0" mnemonicParsing="false" onAction="#removeEmloyee" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
+      <Button layoutX="576.0" layoutY="433.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
