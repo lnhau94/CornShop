@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-public class Product {
+public class Product implements DBQuery{
     private int id;
     private String productId;
     private String productName;
@@ -76,5 +76,33 @@ public class Product {
 
     public void setBrandId(int brandId) {
         this.brandId = brandId;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO PRODUCT(PRODUCTNAME, PRICE, MATERIAL, CATEGORYID, BRANDID) VALUES(" +
+                "'"+this.getProductName()+"', " +
+                "'"+this.getPrice()+"', " +
+                "'"+this.getMaterial()+"', " +
+                "'"+this.getCategoryId()+"', " +
+                "'"+this.getBrandId()+"' " +
+                ")";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "UPDATE PRODUCT SET " +
+                "PRODUCTNAME = '"+this.getProductName()+"', " +
+                "PRICE = '"+this.getPrice()+"', " +
+                "MATERIAL = '"+this.getMaterial()+"', " +
+                "CATEGORYID = '"+this.getCategoryId()+"', " +
+                "BRANDID = '"+this.getBrandId()+"' " +
+                "WHERE ID = '"+this.getId()+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "DELETE PRODUCT " +
+                "WHERE ID = '"+this.getId()+"'";
     }
 }
