@@ -1,5 +1,16 @@
 .header{
     -fx-background-color: linear-gradient(from 0px 0px to 50px 100px, #061700, #52c234);
+    -fx-background-color: linear-gradient(to left, #fc466b, #3f5efb);
+    -fx-background-radius: 12;
+    -fx-text-fill: #fff;
+    -fx-alignment: center;
+    -fx-font-weight: 700;
+    -fx-font-size: 20;
+    -fx-effect: dropshadow(three-pass-box, #AA3A38, 3,0.0,1,1);
+}
+
+.header-text{
+    -fx-background-color: linear-gradient(to left, #fc466b, #3f5efb);
     -fx-background-radius: 12;
     -fx-text-fill: #fff;
     -fx-alignment: center;
@@ -10,7 +21,7 @@
 
 .table-view .label{
     -fx-background-color: #52c234;
-    -fx-text-fill: #fff;
+    -fx-text-fill: #000;
     -fx-font-weight: 700;
     -fx-font-size: 16;
 }
@@ -48,6 +59,29 @@
     -fx-background-color: #52c234;
 }
 
+.btn-confirm {
+    -fx-font-weight: 900;
+    -fx-background-color: linear-gradient(from 0px 0px to 50px 100px, #f7971e, #ffd200);
+    -fx-padding: 4px 8px;
+    -fx-text-fill: #000;
+    -fx-border: solid;
+    -fx-background-radius: 6px;
+    -fx-border-color: none;
+    -fx-pref-height: auto;
+    -fx-pref-width: auto;
+}
+
+.btn-normal {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: none;
+    -fx-border-width: none;
+    -fx-pref-height: auto;
+    -fx-pref-width: auto;
+    -fx-background-color: none;
+    -fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);
+}
+
 .TextFieldInput{
     -fx-background-color: #fff;
     -fx-pref-width: 200;
@@ -63,8 +97,15 @@
     -fx-background-color: #fff;
     -fx-pref-width: 150;
     -fx-pref-height: 35;
+    -fx-border-color: #52c234;
     -fx-text-fill: #52c234;
+    -fx-text-fill: #000;
     -fx-font-weight: 700;
+    -fx-alignment: center;
+}
+
+.combo-box-choose {
+    -fx-background-color: linear-gradient(to top, #ff5f6d, #ffc371);
 }
 
 .nameLbl{

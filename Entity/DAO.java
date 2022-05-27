@@ -13,7 +13,7 @@ public class DAO {
 
     private static String connectURL = "jdbc:sqlserver://;" +
             "serverName=database-1.czhlmlnnya7d.ap-southeast-1.rds.amazonaws.com;" +
-            "databaseName=CNPM;" +
+            "databaseName=CornShop;" +
             "encrypt=true;trustServerCertificate=true";
 
     private static String DBuser = "admin";

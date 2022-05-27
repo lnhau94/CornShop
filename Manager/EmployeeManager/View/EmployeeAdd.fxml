@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Manager.EmployeeManager.Controller.EmployeeAdd"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0" styleClass="dialog" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.AccountManager.Controller.AccountManagerAddController">
+   <header>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="347.0" prefWidth="480.0" stylesheets="@../../Application.css">
+         <children>
+            <Label layoutX="64.0" layoutY="55.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Name" />
+            <Label layoutX="10.0" layoutY="8.0" prefHeight="30.0" prefWidth="461.0" styleClass="header" stylesheets="@../../Application.css" text="Add" />
+            <Label layoutX="63.0" layoutY="128.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Phone Number" />
+            <Label layoutX="62.0" layoutY="198.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Position" />
+            <Label layoutX="64.0" layoutY="271.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Gender" />
+            <TextField fx:id="txtUserName" layoutX="238.0" layoutY="128.0" prefHeight="35.0" prefWidth="197.0" promptText="Enter Phone Number" styleClass="TextFieldInput" stylesheets="@../../Application.css" />
+            <PasswordField fx:id="textPassword" layoutX="237.0" layoutY="55.0" prefHeight="35.0" prefWidth="197.0" promptText="Enter Name" styleClass="TextFieldInput" stylesheets="@../../Application.css" />
+            <ComboBox layoutX="242.0" layoutY="197.0" prefHeight="35.0" prefWidth="197.0" promptText="Choose Position" styleClass="combo-box-choose" />
+            <ComboBox layoutX="240.0" layoutY="269.0" prefHeight="35.0" prefWidth="197.0" promptText="Choose Gender" styleClass="combo-box-choose" />
+         </children>
+      </AnchorPane>
+   </header>
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+   </content>
+   <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+   </expandableContent>
+   <buttonTypes>
+      <ButtonType fx:constant="APPLY" />
+      <ButtonType fx:constant="CLOSE" />
+   </buttonTypes>
+</DialogPane>
