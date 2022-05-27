@@ -3,13 +3,21 @@ package Entity;
 import java.sql.*;
 
 public class DAO {
+//    private static String connectURL = "jdbc:sqlserver://;" +
+//            "serverName=localhost;" +
+//            "databaseName=cornshop;" +
+//            "encrypt=true;trustServerCertificate=true";
+//
+//    private static String DBuser = "admin";
+//    private static String DBpass = "123456";
+
     private static String connectURL = "jdbc:sqlserver://;" +
-            "serverName=localhost;" +
-            "databaseName=cornshop;" +
+            "serverName=database-1.czhlmlnnya7d.ap-southeast-1.rds.amazonaws.com;" +
+            "databaseName=CornShop;" +
             "encrypt=true;trustServerCertificate=true";
 
     private static String DBuser = "admin";
-    private static String DBpass = "123456";
+    private static String DBpass = "1248163264128";
 
 
     private static Connection connect;
