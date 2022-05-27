@@ -1,5 +1,6 @@
 package Store.POS.View;
 
+
 import Entity.Entity.Category;
 import Entity.Entity.OrderDetails;
 import Entity.Entity.Storage;
@@ -23,29 +24,35 @@ import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+
 public class PosView extends BorderPane {
 
     private HBox posControlBar;
     private VBox menuList;
     private ScrollPane menuView;
     private BorderPane orderView;
+
     private TableView<OrderDetails> orderBody;
     private TextField itemCodeTxf;
     private TextField itemQtyTxf;
+
 
     private PosModel model;
     public PosView(PosModel model){
         this.model = model;
         initGUI();
+
     }
 
     private void initGUI(){
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         this.setPrefSize(d.getWidth()-100,d.getHeight()-100);
 
+
         createControlBar();
         createOderView();
         prepareMenuItem();
+
 
         this.setTop(posControlBar);
         this.setCenter(menuView);
@@ -53,10 +60,13 @@ public class PosView extends BorderPane {
     }
 
     private void prepareMenuItem(){
+
         menuList = new VBox();
         menuList.setSpacing(5);
         menuView = new ScrollPane(menuList);
         this.model.getProductDetails().forEach((k,v)->{
+
+        
             menuList.getChildren().add(new MenuItem(k,v));
             menuList.getChildren().add(new MenuItem(k,v));
             menuList.getChildren().add(new MenuItem(k,v));
@@ -75,6 +85,7 @@ public class PosView extends BorderPane {
             menuList.getChildren().add(new MenuItem(k,v));
         });
     }
+
     private void createControlBar(){
         posControlBar = new HBox();
         posControlBar.setPrefHeight(100);
@@ -180,5 +191,6 @@ public class PosView extends BorderPane {
         orderBody.setItems(FXCollections.observableList(this.model.getCurrentChoices()));
         orderBody.refresh();
     }
+
 
 }

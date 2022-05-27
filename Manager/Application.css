@@ -142,7 +142,9 @@
 .menuLabel.label{
     -fx-background-radius: 12;
     -fx-alignment: center;
+
     -fx-pref-width: 250;
+
     -fx-pref-height: 30;
     -fx-font-size: 16;
     -fx-text-fill: #039e1d;
@@ -152,14 +154,17 @@
     -fx-background-radius: 12;
     -fx-alignment: center;
     -fx-font-family: "Times New Roman";
+
     -fx-pref-width: 100;
     -fx-border-color: #25056e;
     -fx-border-radius: 12;
+
     -fx-pref-height: 30;
     -fx-font-size: 14;
     -fx-text-fill: #25056e;
     -fx-font-weight: 700;
 }
+
 
 .checkBtn.button{
     -fx-background-radius: 20;
@@ -168,6 +173,7 @@
     -fx-pref-width: 50;
     -fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);
 }
+
 
 .text-field{
     -fx-padding: 5px;
