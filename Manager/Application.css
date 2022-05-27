@@ -9,16 +9,6 @@
     -fx-effect: dropshadow(three-pass-box, #AA3A38, 3,0.0,1,1);
 }
 
-.header-text{
-    -fx-background-color: linear-gradient(to left, #fc466b, #3f5efb);
-    -fx-background-radius: 12;
-    -fx-text-fill: #fff;
-    -fx-alignment: center;
-    -fx-font-weight: 700;
-    -fx-font-size: 20;
-    -fx-effect: dropshadow(three-pass-box, #AA3A38, 3,0.0,1,1);
-}
-
 .table-view .label{
     -fx-background-color: #52c234;
     -fx-text-fill: #000;
@@ -59,9 +49,10 @@
     -fx-background-color: #52c234;
 }
 
+.label-form,
 .btn-confirm {
     -fx-font-weight: 900;
-    -fx-background-color: linear-gradient(from 0px 0px to 50px 100px, #f7971e, #ffd200);
+    -fx-background-color: linear-gradient(to right, #ff5f6d, #ffc371);
     -fx-padding: 4px 8px;
     -fx-text-fill: #000;
     -fx-border: solid;
@@ -69,6 +60,12 @@
     -fx-border-color: none;
     -fx-pref-height: auto;
     -fx-pref-width: auto;
+}
+
+.btn-confirm:hover {
+    -fx-background-color: linear-gradient(to right, #f7971e, #ffd200);
+    -fx-text-fill: #000;
+    -fx-text-fill: #000;
 }
 
 .btn-normal {
@@ -85,12 +82,12 @@
 .TextFieldInput{
     -fx-background-color: #fff;
     -fx-pref-width: 200;
-    -fx-background-radius: 12;
+    -fx-background-radius: 20;
     -fx-text-fill: #52c234;
     -fx-font-weight: 600;
     -fx-font-size: 14;
     -fx-border-color: #52c234;
-    -fx-border-radius: 12;
+    -fx-border-radius: 20;
 }
 
 .LabelTilte{
@@ -213,19 +210,6 @@
     -fx-pref-height: 25;
     -fx-pref-width: 50;
     -fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);
-}
-
-
-.text-field{
-    -fx-padding: 5px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
-    -fx-pref-width: 200;
-    -fx-pref-height: 35;
-    -fx-background-radius: 8;
-    -fx-text-fill: #52c234;
-    -fx-font-weight: 700;
-    -fx-font-size: 14;
 }
 
 .table-view .label{
