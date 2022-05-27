@@ -87,4 +87,14 @@ public class ProductManagerModel {
         }
         return new Size();
     }
+
+    public static Product findProductById(int id){
+        for(Product p : products){
+            if(p.getId()==id){
+                return p;
+            }
+        }
+        return null;
+    }
+
 }
