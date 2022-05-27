@@ -28,4 +28,13 @@ public class StorageManagerModel {
             throw new RuntimeException(e);
         }
     }
+
+    public static Storage findById(int id) {
+        for(Storage s : storages){
+            if(s.getId() == id){
+                return s;
+            }
+        }
+        return null;
+    }
 }
