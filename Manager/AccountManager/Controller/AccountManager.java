@@ -57,15 +57,15 @@ public class AccountManager implements Initializable {
     public void createNewAccount(){
         FXMLLoader loader = new FXMLLoader();
 
-        Pane EmployeeAddViewParent = null;
+        Pane pane = null;
         try {
             loader.setLocation(new File("Manager/AccountManager/View/AccountManagerAdd.fxml").toURI().toURL());
-            EmployeeAddViewParent = loader.load();
+            pane = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setDialogPane((DialogPane) EmployeeAddViewParent);
+        dialog.setDialogPane((DialogPane) pane);
         AccountManagerAddController controller = loader.getController();
         controller.handleEvent();
         Optional<ButtonType> ClickedButton = dialog.showAndWait();
@@ -91,15 +91,15 @@ public class AccountManager implements Initializable {
     public void editAccount(){
         FXMLLoader loader = new FXMLLoader();
 
-        Pane EmployeeAddViewParent = null;
+        Pane pane = null;
         try {
             loader.setLocation(new File("Manager/AccountManager/View/AccountEdit.fxml").toURI().toURL());
-            EmployeeAddViewParent = loader.load();
+            pane = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setDialogPane((DialogPane) EmployeeAddViewParent);
+        dialog.setDialogPane((DialogPane) pane);
         AccountEdit controller = loader.getController();
         Account a = accTab.getSelectionModel().getSelectedItem();
         if(a==null){

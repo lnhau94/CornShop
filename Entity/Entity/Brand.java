@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-public class Brand {
+public class Brand implements DBQuery{
     private int id;
     private String brandId;
     private String brandName;
@@ -46,5 +46,25 @@ public class Brand {
 
     public void setSupplierId(int supplierId) {
         this.supplierId = supplierId;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO BRAND(BRANDNAME,SUPPLIERID) VALUES" +
+                "('"+this.getBrandName()+"', " +
+                "'"+this.getSupplierId()+"')";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "UPDATE BRAND SET " +
+                "BRANDNAME = '"+this.getBrandName()+"', " +
+                "SUPPLIERID = '"+this.getSupplierId()+"' " +
+                "WHERE ID = '"+this.getId()+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "DELETE BRAND WHERE ID = '"+this.getId()+"'";
     }
 }

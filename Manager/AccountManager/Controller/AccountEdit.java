@@ -29,8 +29,14 @@ public class AccountEdit {
     private Label EmployeeId;
 
     public void setData(Account a){
-        EmployeeName.setText(EmployeeManagerModel.findById(a.getEmployeeId()).getEmployeeName());
-        EmployeeId.setText(EmployeeManagerModel.findById(a.getEmployeeId()).getEmployeeId());
+        EmployeeName.setText(
+                EmployeeManagerModel.findById(a.getEmployeeId())!=null
+                        ?EmployeeManagerModel.findById(a.getEmployeeId()).getEmployeeName()
+                        :"Not Set Yet");
+        EmployeeId.setText(
+                EmployeeManagerModel.findById(a.getEmployeeId())!=null
+                        ?EmployeeManagerModel.findById(a.getEmployeeId()).getEmployeeId()
+                        :"Not Set Yet");
         textPassword.setText(a.getPassword());
         txtPasswordAgain.setText(a.getPassword());
         txtUserName.setText(a.getUsername());
