@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-public class Category {
+public class Category implements DBQuery{
     private int id;
     private String categoryId;
     private String categoryName;
@@ -36,5 +36,20 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO CATEGORY (CATEGORYNAME) VALUES('"+this.getCategoryName()+"')";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "UPDATE CATEGORY SET CATEGORYNAME ='"+this.getCategoryName()+"' WHERE ID = '"+this.getId()+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "DELETE CATEGORY WHERE ID = '"+this.getId()+"'";
     }
 }

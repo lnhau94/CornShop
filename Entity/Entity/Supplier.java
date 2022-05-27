@@ -1,14 +1,14 @@
 package Entity.Entity;
 
-public class Supplier {
+public class Supplier implements DBQuery{
     private int id;
-    private int supplierId;
+    private String supplierId;
     private String supplierName;
 
     public Supplier() {
     }
 
-    public Supplier(int id, int supplierId, String supplierName) {
+    public Supplier(int id, String supplierId, String supplierName) {
         this.id = id;
         this.supplierId = supplierId;
         this.supplierName = supplierName;
@@ -22,11 +22,11 @@ public class Supplier {
         this.id = id;
     }
 
-    public int getSupplierId() {
+    public String getSupplierId() {
         return supplierId;
     }
 
-    public void setSupplierId(int supplierId) {
+    public void setSupplierId(String supplierId) {
         this.supplierId = supplierId;
     }
 
@@ -36,5 +36,20 @@ public class Supplier {
 
     public void setSupplierName(String supplierName) {
         this.supplierName = supplierName;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO SUPPLIER (SUPPLIERNAME) VALUES ('"+this.getSupplierName()+"')";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "UPDATE SUPPLIER SET SUPPLIERNAME = '"+this.getSupplierName()+"' WHERE ID = '"+this.getId()+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "DELETE SUPPLIER WHERE ID = '"+this.getId()+"'";
     }
 }

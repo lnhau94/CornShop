@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-public class Color {
+public class Color implements DBQuery{
     private int id;
     private String name;
     private int red;
@@ -56,5 +56,31 @@ public class Color {
 
     public void setBlue(int blue) {
         this.blue = blue;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO COLOR VALUES(COLORNAME, RED, GREEN, BLUE) VALUES (" +
+                "'"+this.getName()+"', " +
+                "'"+this.getRed()+"', " +
+                "'"+this.getGreen()+"', " +
+                "'"+this.getBlue()+"'" +
+                ")";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "UPDATE COLOR SET " +
+                "NAME = '"+this.getName()+"', " +
+                "RED = '"+this.getRed()+"', " +
+                "GREEN = '"+this.getGreen()+"', " +
+                "BLUE = '"+this.getBlue()+"' " +
+                "WHERE ID = '"+this.getId()+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "DELETE COLOR " +
+                "WHERE ID = '"+this.getId()+"'";
     }
 }

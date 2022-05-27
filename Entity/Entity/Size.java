@@ -1,13 +1,13 @@
 package Entity.Entity;
 
-public class Size {
+public class Size implements DBQuery{
     private int id;
-    private int size;
+    private String size;
 
     public Size() {
     }
 
-    public Size(int id, int size) {
+    public Size(int id, String size) {
         this.id = id;
         this.size = size;
     }
@@ -20,11 +20,26 @@ public class Size {
         this.id = id;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO SIZE (SIZE) VALUES ('"+this.getSize()+"')";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "UPDATE SIZE SET SIZE = '"+this.size+"' WHERE ID = '"+this.getId()+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "DELETE SIZE WHERE ID = '"+this.getId()+"'";
     }
 }

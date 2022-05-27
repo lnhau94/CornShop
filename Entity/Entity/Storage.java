@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-public class Storage {
+public class Storage implements DBQuery{
     private int id;
     private int productId;
     private int colorId;
@@ -56,5 +56,25 @@ public class Storage {
 
     public void setQty(int qty) {
         this.qty = qty;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO STORAGE (PRODUCTID, COLOR, SIZE, QUANTITY) VALUES(" +
+                "'"+this.getProductId()+"', " +
+                "'"+this.getColorId()+"', " +
+                "'"+this.getSizeId()+"', " +
+                "'"+this.getQty()+"' " +
+                ")";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "";
     }
 }

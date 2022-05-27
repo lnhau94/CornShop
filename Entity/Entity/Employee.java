@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-public class Employee {
+public class Employee implements DBQuery{
     private int id;
     private String employeeId;
     private String employeeName;
@@ -66,5 +66,31 @@ public class Employee {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toInsertQuery() {
+        return "INSERT INTO EMPLOYEE (EMPLOYEENAME, PHONE, POSITION, GENDER) VALUES(" +
+                "'"+this.getEmployeeName()+"', " +
+                "'"+this.getPhone()+"', " +
+                "'"+this.getPosition()+"', " +
+                "'"+this.getGender()+"' " +
+                ")";
+    }
+
+    @Override
+    public String toUpdateQuery() {
+        return "UPDATE EMPLOYEE SET " +
+                "EMPLOYEENAME = '"+this.getEmployeeName()+"', " +
+                "PHONE = '"+this.getPhone()+"', " +
+                "POSITION = '"+this.getPosition()+"', " +
+                "GENDER = '"+this.getGender()+"' " +
+                "WHERE ID = '"+this.getId()+"'";
+    }
+
+    @Override
+    public String toDeleteQuery() {
+        return "DELETE EMPLOYEE  " +
+                "WHERE ID = '"+this.getId()+"'";
     }
 }
