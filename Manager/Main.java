@@ -64,5 +64,12 @@ public class Main extends Application {
         StorageManagerModel.getAllData();
         BrandManagerModel.getAllData();
         SupplierManagerModel.getAllData();
+        System.out.println(EmployeeManagerModel.employees.size());
+        System.out.println(CategoryManagerModel.categories.size());
+        System.out.println(AccountManagerModel.accounts.size());
+        System.out.println(ProductManagerModel.products.size());
+        System.out.println(StorageManagerModel.storages.size());
+        System.out.println(BrandManagerModel.brands.size());
+        System.out.println(SupplierManagerModel.suppliers.size());
     }
 }

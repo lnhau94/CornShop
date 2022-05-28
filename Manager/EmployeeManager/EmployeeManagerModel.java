@@ -22,7 +22,9 @@ public class EmployeeManagerModel {
 
     public static void getAllData(){
         employees = new ArrayList<>();
-        ResultSet rs = DAO.executeQuery("Select * from Employee");
+        ResultSet rs = DAO.executeQuery(
+                "Select id, employeeId, employeeName, phone, position, gender " +
+                "from Employee");
         try{
             while(rs.next()){
                 Employee e = new Employee(

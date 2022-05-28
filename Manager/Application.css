@@ -163,19 +163,19 @@
     -fx-background-radius: 20;
     -fx-border-radius: 20;
     -fx-pref-height: 25;
-    -fx-pref-width: 50;
-    -fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);
+    -fx-pref-width: 25;
+    -fx-effect: dropshadow(three-pass-box, #000, 5,0.0,2,2);
 }
 .toggle-button:hover{
     -fx-pref-height: 30;
-    -fx-pref-width: 55;
+    -fx-pref-width: 30;
 }
 
 .toggle-button:selected {
     -fx-border-color: linear-gradient(from 0px 0px to 10px 30px,white, tomato);
     -fx-border-width: 2;
     -fx-pref-height: 35;
-    -fx-pref-width: 60;
+    -fx-pref-width: 35;
 }
 .menuLabel.label{
     -fx-background-radius: 12;

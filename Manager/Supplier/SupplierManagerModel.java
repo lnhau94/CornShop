@@ -12,7 +12,7 @@ public class SupplierManagerModel {
     public static List<Supplier> suppliers;
     public static void getAllData(){
         suppliers = new ArrayList<>();
-        ResultSet rs = DAO.executeQuery("Select * from Supplier");
+        ResultSet rs = DAO.executeQuery("Select id, supplierId, supplierName from Supplier");
         try{
             while (rs.next()){
                 suppliers.add(new Supplier(
