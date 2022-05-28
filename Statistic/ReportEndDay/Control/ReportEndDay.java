@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import Entity.DAO;
+import Main.MainApp;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -88,7 +89,7 @@ public class ReportEndDay extends ScreenManager implements Initializable{
         if (valueTotalRevenue.compareToIgnoreCase("") == 0) {
             valueTotalRevenue = "0";
         }
-        totalRevenue.setText(valueTotalRevenue);
+        totalRevenue.setText(String.format("%,3d",Integer.parseInt(valueTotalRevenue)));
         valueTotalOrder = getData("select count(OrderID) from Orders where OrderDate = ('%s') group by OrderDate", time);
         if (valueTotalOrder.compareToIgnoreCase("") == 0) {
             valueTotalOrder = "0";
@@ -99,6 +100,6 @@ public class ReportEndDay extends ScreenManager implements Initializable{
             valueTotalClothes = "0";
         }
         totalClothes.setText(valueTotalClothes);
-        nameEmp.setText("Phạm Nguyễn Đức Huy");
+        nameEmp.setText(MainApp.staff.getEmployeeName());
     }
 }

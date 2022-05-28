@@ -5,6 +5,7 @@ import Entity.Entity.Order;
 import Entity.Entity.OrderDetails;
 import Entity.Entity.Product;
 import Entity.Entity.Storage;
+import Main.MainApp;
 import Manager.Product.ProductManagerModel;
 import Manager.Storage.StorageManagerModel;
 import Store.POS.Control.PosController;
@@ -95,7 +96,7 @@ public class PosModel {
                             "VALUES (?,?,?)");
             pstm.setDate(1,new Date(System.currentTimeMillis()));
             pstm.setInt(2,calculateTotalPrice());
-            pstm.setInt(3,1);
+            pstm.setInt(3, MainApp.staff.getId());
             ResultSet rs = pstm.executeQuery();
             rs.next();
             int orderId = rs.getInt(1);

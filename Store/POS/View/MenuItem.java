@@ -112,6 +112,7 @@ public class MenuItem extends HBox {
                 tmp.setStyle(String.format("-fx-background-color: rgb(%d,%d,%d)",c.getRed(),c.getGreen(),c.getBlue()));
                 tmp.setOnAction(e->filterColor(Integer.parseInt(tmp.getId())));
                 tmp.setToggleGroup(gr);
+                filterColor(Integer.parseInt(tmp.getId()));
                 colors.getChildren().add(tmp);
                 details.get(s.getColorId()).add(new Pair<>(s.getSizeId(),s.getQty()));
             }
