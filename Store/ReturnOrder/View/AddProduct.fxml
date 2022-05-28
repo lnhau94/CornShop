@@ -9,20 +9,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Store.ReturnOrder.Control.AddProduct">
    <content>
       <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="502.0">
          <children>
-            <ComboBox layoutX="72.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="159.0" promptText="Vui lòng chọn" />
-            <TextField layoutX="249.0" layoutY="79.0" promptText="Vui lòng nhập" />
+            <ComboBox fx:id="boxCheck" layoutX="72.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#checkCombo" prefHeight="26.0" prefWidth="159.0" promptText="Vui lòng chọn" />
+            <TextField fx:id="productId" layoutX="249.0" layoutY="79.0" promptText="Vui lòng nhập" />
             <Label alignment="CENTER" layoutX="83.0" layoutY="121.0" prefHeight="16.0" prefWidth="136.0" text="MÀU " />
             <Label alignment="CENTER" layoutX="83.0" layoutY="157.0" prefHeight="16.0" prefWidth="136.0" text="SIZE" />
             <Label alignment="CENTER" layoutX="83.0" layoutY="193.0" prefHeight="16.0" prefWidth="136.0" text="SỐ LƯỢNG" />
             <Label alignment="CENTER" layoutX="83.0" layoutY="229.0" prefHeight="16.0" prefWidth="136.0" text="GIÁ TIỀN" />
             <TextField layoutX="249.0" layoutY="189.0" promptText="Vui lòng nhập" />
-            <ComboBox layoutX="249.0" layoutY="117.0" prefHeight="24.0" prefWidth="170.0" promptText="Chọn màu" />
-            <ComboBox layoutX="249.0" layoutY="153.0" prefHeight="24.0" prefWidth="170.0" promptText="Chọn size" />
+            <ComboBox fx:id="colorBox" layoutX="249.0" layoutY="117.0" prefHeight="24.0" prefWidth="170.0" promptText="Chọn màu" />
+            <ComboBox fx:id="sizeBox" layoutX="249.0" layoutY="153.0" prefHeight="24.0" prefWidth="170.0" promptText="Chọn size" />
             <Label fx:id="priceProd" alignment="CENTER" layoutX="249.0" layoutY="225.0" prefHeight="24.0" prefWidth="170.0" />
             <Label fx:id="header" alignment="CENTER" prefHeight="42.0" prefWidth="502.0" text="CHANGE ORDER" textAlignment="CENTER" />
             <Button fx:id="btnAdd" layoutX="206.0" layoutY="267.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="90.0" text="Thêm" />
