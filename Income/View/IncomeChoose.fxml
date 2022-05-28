@@ -8,26 +8,29 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../Manager/Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Income.Controller.IncomeChoose">
+<AnchorPane prefHeight="641.0" prefWidth="1263.0" stylesheets="@../../Manager/Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Income.Controller.IncomeChoose">
    <children>
-      <TableView fx:id="tableOrder" layoutX="682.0" layoutY="106.0" prefHeight="482.0" prefWidth="339.0">
+      <TableView fx:id="tableOrder" layoutX="682.0" layoutY="106.0" prefHeight="482.0" prefWidth="559.0">
          <columns>
-            <TableColumn fx:id="nameColOrd" prefWidth="90.1373291015625" text="ID" />
-            <TableColumn fx:id="qtyCol" minWidth="0.0" prefWidth="152.0" text="Name" />
-            <TableColumn prefWidth="95.5" text="Quantity" />
+            <TableColumn fx:id="idColOrd" prefWidth="56.1295166015625" text="ID" />
+            <TableColumn fx:id="nameColOrd" minWidth="0.0" prefWidth="242.8704833984375" text="Name" />
+            <TableColumn fx:id="colorColOrd" prefWidth="83.2679443359375" text="Color" />
+            <TableColumn fx:id="sizeColOrd" prefWidth="74.7320556640625" text="Size" />
+            <TableColumn fx:id="qtyCol" prefWidth="102.4876708984375" text="Quantity" />
          </columns>
       </TableView>
-      <TableView fx:id="tableChoose" layoutX="11.0" layoutY="106.0" prefHeight="480.0" prefWidth="660.0">
+      <TableView fx:id="tableChoose" layoutX="11.0" layoutY="106.0" onMouseClicked="#addItem" prefHeight="480.0" prefWidth="660.0">
          <columns>
-            <TableColumn fx:id="nameCol" prefWidth="116.25822448730469" text="Product ID" />
-            <TableColumn fx:id="priceCol" prefWidth="174.32781982421875" text="Name" />
-            <TableColumn fx:id="typeCol" minWidth="0.0" prefWidth="69.01654052734375" text="Size" />
-            <TableColumn fx:id="producerCol" prefWidth="76.06777954101562" text="Color" />
-            <TableColumn prefWidth="113.5" text="Category" />
-            <TableColumn prefWidth="108.5" text="Brand" />
+            <TableColumn fx:id="idCol" prefWidth="91.5" text="Product ID" />
+            <TableColumn fx:id="nameCol" prefWidth="141.5" text="Name" />
+            <TableColumn fx:id="sizeCol" minWidth="0.0" prefWidth="82.5" text="Size" />
+            <TableColumn fx:id="colorCol" prefWidth="73.5" text="Color" />
+            <TableColumn fx:id="typeCol" prefWidth="97.5" text="Category" />
+            <TableColumn fx:id="brandCol" prefWidth="99.5" text="Brand" />
+            <TableColumn fx:id="priceCol" prefWidth="75.0" text="Price" />
          </columns>
       </TableView>
-      <Button fx:id="backWarehouseBtn" layoutX="5.0" layoutY="593.0" mnemonicParsing="false" styleClass="btn-normal" stylesheets="@../../Manager/Application.css">
+      <Button layoutX="5.0" layoutY="593.0" mnemonicParsing="false" styleClass="btn-normal" stylesheets="@../../Manager/Application.css">
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -36,7 +39,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="frmIngredientOrder" layoutX="984.0" layoutY="593.0" mnemonicParsing="false" prefWidth="51.0" styleClass="btn-normal" stylesheets="@../../Manager/Application.css">
+      <Button fx:id="frmIncomeOrder" layoutX="1195.0" layoutY="597.0" mnemonicParsing="false" onAction="#checkChoose" prefWidth="51.0" styleClass="btn-normal" stylesheets="@../../Manager/Application.css">
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" styleClass="button-bc">
                <image>
@@ -45,7 +48,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="904.0" layoutY="59.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="101.0" styleClass="btn-confirm" stylesheets="@../../Manager/Application.css" text="Remove">
+      <Button layoutX="1101.0" layoutY="62.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="36.0" prefWidth="101.0" styleClass="btn-confirm" stylesheets="@../../Manager/Application.css" text="Remove">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -54,7 +57,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label disable="true" layoutX="682.0" layoutY="83.0" text="Edit quantity by double click on the cell" />
-      <Label layoutX="20.0" layoutY="12.0" prefHeight="36.0" prefWidth="999.0" styleClass="header" stylesheets="@../../Manager/Application.css" text="Choose Ingredients" />
+      <Label disable="true" layoutX="879.0" layoutY="86.0" text="Edit quantity by double click on the cell" />
+      <Label layoutX="20.0" layoutY="12.0" prefHeight="36.0" prefWidth="1219.0" styleClass="header" stylesheets="@../../Manager/Application.css" text="Choose Ingredients" />
    </children>
 </AnchorPane>

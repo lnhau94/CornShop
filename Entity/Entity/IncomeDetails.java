@@ -3,17 +3,25 @@ package Entity.Entity;
 public class IncomeDetails {
     private int id;
     private int incomeBillId;
-    private int productId;
+    private int storageId;
     private int quantity;
+    private int recevie;
 
     public IncomeDetails() {
     }
 
-    public IncomeDetails(int id, int incomeBillId, int productId, int quantity) {
+    public IncomeDetails(int id, int incomeBillId, int productId, int quantity, int recevie) {
         this.id = id;
         this.incomeBillId = incomeBillId;
-        this.productId = productId;
+        this.storageId = productId;
         this.quantity = quantity;
+        this.recevie = recevie;
+    }
+
+    public IncomeDetails(Storage i, int quantity) {
+        storageId = i.getId();
+        this.quantity = quantity;
+
     }
 
     public int getId() {
@@ -32,12 +40,12 @@ public class IncomeDetails {
         this.incomeBillId = incomeBillId;
     }
 
-    public int getProductId() {
-        return productId;
+    public int getStorageId() {
+        return storageId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setStorageId(int storageId) {
+        this.storageId = storageId;
     }
 
     public int getQuantity() {
@@ -46,5 +54,13 @@ public class IncomeDetails {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int getRecevie() {
+        return recevie;
+    }
+
+    public void setRecevie(int recevie) {
+        this.recevie = recevie;
     }
 }
