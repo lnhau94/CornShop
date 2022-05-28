@@ -9,7 +9,7 @@ public class PosController {
     private PosView view;
 
     public PosController(){
-        this.model = new PosModel();
+        this.model = new PosModel(this);
         this.view = new PosView(model);
     }
 

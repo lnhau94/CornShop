@@ -30,6 +30,8 @@ public class PosView extends BorderPane {
     private ScrollPane menuView;
     private BorderPane orderView;
     private TableView<OrderDetails> orderBody;
+    private VBox orderFooter;
+    private Label priceLbl;
     private TextField itemCodeTxf;
     private TextField itemQtyTxf;
 
@@ -74,6 +76,7 @@ public class PosView extends BorderPane {
             menuList.getChildren().add(new MenuItem(k,v));
             menuList.getChildren().add(new MenuItem(k,v));
         });
+        this.setCenter(menuView);
     }
     private void createControlBar(){
         posControlBar = new HBox();
@@ -123,6 +126,14 @@ public class PosView extends BorderPane {
     private void createOderView(){
         orderView = new BorderPane();
         orderView.setPrefWidth(300);
+        createNewOrder();
+    }
+    public void createNewOrder(){
+
+        createOrderBody();
+        createOrderFooter();
+    }
+    private void createOrderBody(){
         orderBody = new TableView<>();
         TableColumn<OrderDetails,String> indexCol = new TableColumn<>("No");
         TableColumn<OrderDetails,String> productCol = new TableColumn<>("Product");
@@ -137,17 +148,28 @@ public class PosView extends BorderPane {
         qtyCol.setPrefWidth(35);
 
         indexCol.setCellValueFactory(e->
-                new SimpleStringProperty(String.valueOf(model.getCurrentChoices().indexOf(e.getValue()))));
+                new SimpleStringProperty(String.valueOf(model.getCurrentChoices().indexOf(e.getValue())+1)));
         productCol.setCellValueFactory(e->
                 new SimpleStringProperty(ProductManagerModel.findProductById(e.getValue().getProductId()).getProductName()));
-        colorCol.setCellValueFactory();
-        sizeCol.setPrefWidth(50);
-        qtyCol.setPrefWidth(35);
+        colorCol.setCellValueFactory(e->
+                new SimpleStringProperty(ProductManagerModel.findColorById(e.getValue().getColorId()).getName()));
+        sizeCol.setCellValueFactory(e->
+                new SimpleStringProperty(ProductManagerModel.findSizebyId(e.getValue().getSizeId()).getSize()));
+        qtyCol.setCellValueFactory(e->new SimpleStringProperty(String.valueOf(e.getValue().getQty())));
 
         orderBody.getColumns().addAll(indexCol,productCol,colorCol,sizeCol,qtyCol);
         orderView.setCenter(orderBody);
-
         orderBody.setItems(FXCollections.observableList(this.model.getCurrentChoices()));
+    }
+
+    private void createOrderFooter(){
+        orderFooter = new VBox();
+        priceLbl = new Label("0");
+        Button cashBtn = new Button("Cash");
+        cashBtn.setOnAction(e->model.payCurrentOrder());
+        orderFooter.getChildren().addAll(priceLbl,cashBtn);
+        orderView.setBottom(orderFooter);
+
     }
 
     private void choiceItem(){
@@ -173,7 +195,7 @@ public class PosView extends BorderPane {
         }catch (NullPointerException e){
             new ErrorController().displayError("Item code is not found!!");
         }
-
+        priceLbl.setText(String.format("%,d",model.calculateTotalPrice()*1000));
     }
 
     public void refreshTable(){
@@ -181,4 +203,7 @@ public class PosView extends BorderPane {
         orderBody.refresh();
     }
 
+    public void refreshMenu() {
+        prepareMenuItem();
+    }
 }
