@@ -99,4 +99,10 @@ public class ProductManagerModel {
         return null;
     }
 
+    public static ArrayList<String> getAllProductName(){
+        ArrayList<String> names = new ArrayList<>();
+        products.forEach(e->names.add(e.getProductName()));
+        return names;
+    }
+
 }
