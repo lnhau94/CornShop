@@ -20,11 +20,11 @@
             <TableView fx:id="tableProduct" layoutX="80.0" layoutY="190.0" prefHeight="402.0" prefWidth="882.0">
               <columns>
                 <TableColumn fx:id="idProduct" prefWidth="134.0" text="MÃ SẢN PHẨM" />
-                <TableColumn fx:id="nameProduct" prefWidth="276.0" text="TÊN SẢN PHẨM" />
-                  <TableColumn fx:id="colorProduct" prefWidth="96.0" text="MÀU" />
-                  <TableColumn fx:id="sizeProduct" prefWidth="73.0" text="SIZE" />
-                  <TableColumn fx:id="qtyProduct" minWidth="0.0" onEditCommit="#editQtyColumn" prefWidth="129.0" text="SỐ LƯỢNG" />
-                  <TableColumn fx:id="priceProduct" prefWidth="173.0" text="GIÁ TIỀN" />
+                <TableColumn fx:id="nameProduct" prefWidth="320.0" text="TÊN SẢN PHẨM" />
+                  <TableColumn fx:id="colorProduct" prefWidth="85.0" text="MÀU" />
+                  <TableColumn fx:id="sizeProduct" text="SIZE" />
+                  <TableColumn fx:id="qtyProduct" minWidth="0.0" onEditCommit="#editQtyColumn" prefWidth="101.0" text="SỐ LƯỢNG" />
+                  <TableColumn fx:id="priceProduct" prefWidth="161.0" text="GIÁ TIỀN" />
               </columns>
             </TableView>
             <Button fx:id="btnSuccess" layoutX="126.0" layoutY="117.0" mnemonicParsing="false" text="HOÀN THÀNH" />

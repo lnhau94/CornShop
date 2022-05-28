@@ -4,6 +4,7 @@ import Entity.Entity.Color;
 import Entity.Entity.Product;
 import Entity.Entity.Size;
 import Entity.Entity.Storage;
+import Manager.Brand.BrandManagerModel;
 import Manager.Product.ProductManagerModel;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Pair;
 
 import java.awt.*;
@@ -33,18 +35,21 @@ public class MenuItem extends HBox {
     private Label priceLbl;
 
     private Label materialLbl;
+    private Label brandLbl;
     private Label storageLbl;
     private VBox colorAndSize;
     private FlowPane colors;
     private FlowPane sizes;
     private ArrayList<StorageLabel> sizeLblList;
     private HashMap<Integer,ArrayList<Pair<Integer,Integer>>> details;
+    PosView onwer;
     private String bosCss =
             "-fx-effect: dropshadow(three-pass-box, #52c234, 5,0.0,2,2);" +
                     "-fx-padding: 5,0,0,0;" +
                     "-fx-border-color: #52c234;" +
                     "-fx-border-radius: 12;";
-    public MenuItem(int productId, List storageList){
+    public MenuItem(int productId, List storageList,PosView onwer){
+        this.onwer = onwer;
         this.storageList = storageList;
         this.productId =  productId;
         this.setPrefWidth(Toolkit.getDefaultToolkit().getScreenSize().getWidth()-400);
@@ -59,16 +64,22 @@ public class MenuItem extends HBox {
         priceLbl = new Label();
         storageLbl = new Label();
         materialLbl = new Label();
+        brandLbl = new Label();
+        brandLbl.getStyleClass().add("menuLabel");
         nameLbl.getStyleClass().add("menuLabel");
+        nameLbl.setMinWidth(500);
         priceLbl.getStyleClass().add("menuLabel");
         storageLbl.getStyleClass().add("menuLabel");
         materialLbl.getStyleClass().add("menuLabel");
+        materialLbl.setMinWidth(500);
         colorAndSize = new VBox();
         colors = new FlowPane();
 
         colors.setHgap(5);
+        colorAndSize.setSpacing(10);
 
         sizes = new FlowPane();
+        sizes.setVgap(5);
         sizeLblList = new ArrayList<>();
         ToggleGroup gr = new ToggleGroup();
         gr.selectedToggleProperty().addListener((obsVal, oldVal, newVal) -> {
@@ -81,6 +92,7 @@ public class MenuItem extends HBox {
                 nameLbl.setText(p.getProductName());
 
                 priceLbl.setText(String.format("%,d",p.getPrice())+" VND");
+                brandLbl.setText(BrandManagerModel.findBrandName(p.getBrandId()));
 
                 materialLbl.setText(p.getMaterial());
                 break;
@@ -100,21 +112,35 @@ public class MenuItem extends HBox {
                 tmp.setStyle(String.format("-fx-background-color: rgb(%d,%d,%d)",c.getRed(),c.getGreen(),c.getBlue()));
                 tmp.setOnAction(e->filterColor(Integer.parseInt(tmp.getId())));
                 tmp.setToggleGroup(gr);
+                filterColor(Integer.parseInt(tmp.getId()));
                 colors.getChildren().add(tmp);
                 details.get(s.getColorId()).add(new Pair<>(s.getSizeId(),s.getQty()));
             }
             StorageLabel tmpl = new StorageLabel(s);
+            tmpl.setOnMouseClicked(e->onwer.setItemCode(String.valueOf(tmpl.getStorage().getId())));
             tmpl.setPrefSize(50,25);
             sizeLblList.add(tmpl);
         }
 
         storageLbl.setText("InStock: " + Sum);
 
+        VBox v = new VBox();
+        HBox h = new HBox();
 
+        h.getChildren().add(nameLbl);
+        h.getChildren().add(priceLbl);
+
+        v.getChildren().add(h);
+        v.getChildren().addAll(new FlowPane(brandLbl,storageLbl),materialLbl);
+        /*
         this.getChildren().add(nameLbl);
         this.getChildren().add(priceLbl);
         this.getChildren().add(storageLbl);
         this.getChildren().add(materialLbl);
+
+         */
+
+        this.getChildren().add(v);
         HBox.setHgrow(nameLbl, Priority.ALWAYS);
         HBox.setHgrow(priceLbl, Priority.ALWAYS);
         HBox.setHgrow(storageLbl, Priority.ALWAYS);
