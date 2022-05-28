@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0" styleClass="dialog" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Category.Controller.CategoryAdd">
+   <header>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="347.0" prefWidth="480.0" stylesheets="@../../Application.css">
+         <children>
+            <Label layoutX="49.0" layoutY="158.0" prefHeight="55.0" prefWidth="170.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Name" />
+            <Label layoutX="10.0" layoutY="8.0" prefHeight="30.0" prefWidth="461.0" styleClass="header" stylesheets="@../../Application.css" text="Add" />
+            <PasswordField fx:id="textPassword" layoutX="220.0" layoutY="150.0" prefHeight="48.0" prefWidth="226.0" promptText="Enter Name" styleClass="TextFieldInput" stylesheets="@../../Application.css" />
+         </children>
+      </AnchorPane>
+   </header>
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+   </content>
+   <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+   </expandableContent>
+   <buttonTypes>
+      <ButtonType fx:constant="APPLY" />
+      <ButtonType fx:constant="CLOSE" />
+   </buttonTypes>
+</DialogPane>

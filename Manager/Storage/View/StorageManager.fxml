@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Income.Controller.IncomeOrderList">
+   <children>
+      <Label fx:id="header" contentDisplay="CENTER" layoutX="27.0" layoutY="9.0" prefHeight="30.0" prefWidth="967.0" styleClass="header" text="Storage Manager" textAlignment="CENTER" />
+      <TableView fx:id="table" layoutX="52.0" layoutY="99.0" prefHeight="346.0" prefWidth="893.0">
+         <columns>
+            <TableColumn fx:id="numberOrdCol" prefWidth="80.65364837646484" text="No" />
+            <TableColumn fx:id="idEmployeeCol" prefWidth="147.6536407470703" text="Product ID" />
+            <TableColumn fx:id="nameEmployeeCol" prefWidth="239.34637451171875" text="Product Name" />
+            <TableColumn fx:id="dateCol" prefWidth="154.0596923828125" text="Color" />
+            <TableColumn fx:id="statusCol" prefWidth="129.2723388671875" text="Size" />
+            <TableColumn prefWidth="140.727783203125" text="Quantity" />
+         </columns>
+      </TableView>
+      <Button fx:id="backWarehouseBtn" layoutX="7.0" layoutY="450.0" mnemonicParsing="false" styleClass="btn-normal">
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Tired/CNPMCoffee/Icon/backnow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="517.0" layoutY="50.0" mnemonicParsing="false" styleClass="btn-confirm" text="Supplier's new products">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Icon/new-product.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="714.0" layoutY="50.0" mnemonicParsing="false" styleClass="btn-confirm" text="Create Order">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Icon/boxplus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="849.0" layoutY="50.0" mnemonicParsing="false" styleClass="btn-confirm" text="Order List">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Icon/note.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

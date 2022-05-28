@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0" styleClass="dialog" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.AccountManager.Controller.AccountManagerAddController">
+   <header>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="347.0" prefWidth="480.0" stylesheets="@../../Application.css">
+         <children>
+            <Label layoutX="52.0" layoutY="58.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Name" />
+            <Label layoutX="10.0" layoutY="8.0" prefHeight="30.0" prefWidth="461.0" styleClass="header" stylesheets="@../../Application.css" text="Edit" />
+            <Label layoutX="52.0" layoutY="114.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Color" />
+            <Label layoutX="53.0" layoutY="170.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Size" />
+            <PasswordField fx:id="textPassword" layoutX="227.0" layoutY="58.0" prefHeight="35.0" prefWidth="197.0" promptText="Enter Name" styleClass="TextFieldInput" stylesheets="@../../Application.css" />
+            <ComboBox layoutX="232.0" layoutY="114.0" prefHeight="35.0" prefWidth="197.0" promptText="Choose Color" styleClass="combo-box-choose" />
+            <ComboBox layoutX="232.0" layoutY="170.0" prefHeight="35.0" prefWidth="197.0" promptText="Choose Size" styleClass="combo-box-choose" />
+            <Label layoutX="53.0" layoutY="227.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Category" />
+            <Label layoutX="52.0" layoutY="284.0" prefHeight="46.0" prefWidth="149.0" styleClass="LabelTilte" stylesheets="@../../Application.css" text="Brand" />
+            <ComboBox layoutX="233.0" layoutY="227.0" prefHeight="35.0" prefWidth="197.0" promptText="Choose Category" styleClass="combo-box-choose" />
+            <ComboBox layoutX="231.0" layoutY="284.0" prefHeight="35.0" prefWidth="197.0" promptText="Choose Brand" styleClass="combo-box-choose" />
+         </children>
+      </AnchorPane>
+   </header>
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+   </content>
+   <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+   </expandableContent>
+   <buttonTypes>
+      <ButtonType fx:constant="APPLY" />
+      <ButtonType fx:constant="CLOSE" />
+   </buttonTypes>
+</DialogPane>
