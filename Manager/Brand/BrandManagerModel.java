@@ -26,4 +26,13 @@ public class BrandManagerModel {
             throw new RuntimeException(e);
         }
     }
+
+    public static String findBrandName(int id) {
+        for(Brand b : brands){
+            if(b.getId() == id){
+                return b.getBrandName();
+            }
+        }
+        return "";
+    }
 }

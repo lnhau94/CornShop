@@ -10,6 +10,7 @@ import Manager.Storage.StorageManagerModel;
 import Store.POS.Model.PosModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.text.TextAlignment;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.awt.*;
 import java.io.FileInputStream;
@@ -59,7 +62,7 @@ public class PosView extends BorderPane {
         menuList.setSpacing(5);
         menuView = new ScrollPane(menuList);
         this.model.getProductDetails().forEach((k,v)->{
-            menuList.getChildren().add(new MenuItem(k,v));
+            menuList.getChildren().add(new MenuItem(k,v,this));
         });
         this.setCenter(menuView);
     }
@@ -75,6 +78,7 @@ public class PosView extends BorderPane {
         TextField searchTxf = new TextField();
         searchTxf.setPrefSize(150,30);
         searchTxf.setPromptText("Search item!!!");
+        TextFields.bindAutoCompletion(searchTxf, ProductManagerModel.getAllProductName());
         searchBar.getChildren().add(searchTxf);
         try {
             ImageView img = new ImageView(new Image(new FileInputStream("Icon/search.png")));
@@ -94,6 +98,7 @@ public class PosView extends BorderPane {
         itemQtyTxf = new TextField("1");
         itemQtyTxf.setMaxSize(50,50);
         itemCodeTxf.setPromptText("Enter Item Code!!!");
+        TextFields.bindAutoCompletion(itemCodeTxf, StorageManagerModel.getAllItemCode());
         Button checkBtn = new Button("OK");
         checkBtn.setOnAction(e->choiceItem());
 
@@ -149,7 +154,13 @@ public class PosView extends BorderPane {
 
     private void createOrderFooter(){
         orderFooter = new VBox();
-        priceLbl = new Label("0");
+        orderFooter.setPrefHeight(120);
+        orderFooter.setAlignment(Pos.BASELINE_RIGHT);
+        orderFooter.setSpacing(5);
+
+        priceLbl = new Label("VND");
+        priceLbl.getStyleClass().add("priceLbl");
+        priceLbl.setAlignment(Pos.CENTER_RIGHT);
         Button cashBtn = new Button("Cash");
         cashBtn.setOnAction(e->model.payCurrentOrder());
         orderFooter.getChildren().addAll(priceLbl,cashBtn);
@@ -180,7 +191,7 @@ public class PosView extends BorderPane {
         }catch (NullPointerException e){
             new ErrorController().displayError("Item code is not found!!");
         }
-        priceLbl.setText(String.format("%,d",model.calculateTotalPrice()));
+        priceLbl.setText(String.format("%,d VND",model.calculateTotalPrice()));
     }
 
     public void refreshTable(){
@@ -190,5 +201,9 @@ public class PosView extends BorderPane {
 
     public void refreshMenu() {
         prepareMenuItem();
+    }
+
+    public void setItemCode(String itemCode){
+        itemCodeTxf.setText(itemCode);
     }
 }

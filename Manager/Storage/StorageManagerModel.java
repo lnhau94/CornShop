@@ -38,4 +38,10 @@ public class StorageManagerModel {
         return null;
     }
 
+    public static ArrayList<String> getAllItemCode(){
+        ArrayList<String> codes = new ArrayList<>();
+        storages.forEach(e->codes.add(String.valueOf(e.getId())));
+        return codes;
+    }
+
 }
