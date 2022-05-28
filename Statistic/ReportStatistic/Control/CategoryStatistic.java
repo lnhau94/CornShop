@@ -101,7 +101,7 @@ public class CategoryStatistic extends ScreenManager implements Initializable {
                     startTime = dateFormat.format(beginDate);
                     endTime = dateFormat.format(finishDate);
                     listCate.clear();
-                    getData("select ct.CategoryID, ct.CategoryName, sum(odt.Quantity) from Category ct join Product pd on pd.CategoryID = ct.CategoryID join OrderDetails odt on odt.ProductID = pd.ProductID join Orders od on od.OrderID = odt.OrderID where od.OrderDate >=('%s') and od.OrderDate <= ('%s') group by ct.CategoryID, ct.CategoryName", startTime, endTime);
+                    getData("select ct.CategoryID, ct.CategoryName, sum(odt.Quantity) from Category ct join Product pd on pd.CategoryID = ct.ID join OrderDetails odt on odt.ProductID = pd.ID join Orders od on od.ID = odt.OrderID where od.OrderDate >=('%s') and od.OrderDate <= ('%s') group by ct.CategoryID, ct.CategoryName", startTime, endTime);
                     tableProduct.refresh();
                 } else {
                     Alert alert = new Alert(AlertType.ERROR);

@@ -85,10 +85,11 @@ public class ProductStatistic extends ScreenManager implements Initializable{
                 }
             }
         } catch (SQLException e) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Không thể liên kết để lấy dữ liệu !");
-            alert.showAndWait();
+            // Alert alert = new Alert(AlertType.ERROR);
+            // alert.setHeaderText(null);
+            // alert.setContentText("Haha !");
+            // alert.showAndWait();
+            e.printStackTrace();
         }
     }
 
@@ -115,14 +116,7 @@ public class ProductStatistic extends ScreenManager implements Initializable{
                     endTime = dateFormat.format(finishDate);
                     listProd.clear();
                     getData(
-                            "select pd.ProductID, pd.ProductName, pd.CategoryID, odt.SizeID, odt.ColorID, sum(pd.Price*odt.Quantity), sum(odt.Quantity), od.OrderDate "+
-                            "from Orders od join OrderDetails odt on odt.OrderID = od.OrderID "+ 
-                            "join Product pd on pd.ID = odt.ProductID "+
-                            "join Category ct on ct.CategoryID = pd.CategoryID "+ 
-                            "join Color cl on cl.ID = odt.ColorID "+
-                            "join Size s on s.ID = odt.SizeID "+
-                            "where od.OrderDate >=('%s') and od.OrderDate <= ('%s') "+
-                            "group by od.OrderDate, pd.ProductID, pd.ProductName, pd.CategoryID, odt.SizeID, odt.ColorID ", startTime, endTime);
+                            "select pd.ProductID, pd.ProductName, ct.CategoryName, s.Size, cl.ColorName, sum(pd.Price*odt.Quantity), sum(odt.Quantity), od.OrderDate from Orders od join OrderDetails odt on odt.OrderID = od.ID join Product pd on pd.ID = odt.ProductID  join Category ct on ct.ID = pd.CategoryID join Color cl on cl.ID = odt.ColorID join Size s on s.ID = odt.SizeID where od.OrderDate >=('%s') and od.OrderDate <= ('%s') group by od.OrderDate, pd.ProductID, pd.ProductName, ct.CategoryName, s.Size, cl.ColorName", startTime, endTime);
                     tableProduct.refresh();
                 } else {
                     Alert alert = new Alert(AlertType.ERROR);
@@ -175,14 +169,7 @@ public class ProductStatistic extends ScreenManager implements Initializable{
                     endTime = dateFormat.format(finishDate);
                     listProd.clear();
                     getData(
-                            "select pd.ProductID, pd.ProductName, pd.CategoryID, odt.SizeID, odt.ColorID, sum(pd.Price*odt.Quantity), sum(odt.Quantity), od.OrderDate "+
-                            "from Orders od join OrderDetails odt on odt.OrderID = od.OrderID "+ 
-                            "join Product pd on pd.ID = odt.ProductID "+
-                            "join Category ct on ct.CategoryID = pd.CategoryID "+ 
-                            "join Color cl on cl.ID = odt.ColorID "+
-                            "join Size s on s.ID = odt.SizeID "+
-                            "where od.OrderDate >=('%s') and od.OrderDate <= ('%s') "+
-                            "group by od.OrderDate, pd.ProductID, pd.ProductName, pd.CategoryID, odt.SizeID, odt.ColorID ", startTime, endTime);
+                            "select pd.ProductID, pd.ProductName, ct.CategoryName, s.Size, cl.ColorName, sum(pd.Price*odt.Quantity), sum(odt.Quantity), od.OrderDate from Orders od join OrderDetails odt on odt.OrderID = od.ID join Product pd on pd.ID = odt.ProductID  join Category ct on ct.ID = pd.CategoryID join Color cl on cl.ID = odt.ColorID join Size s on s.ID = odt.SizeID where od.OrderDate >=('%s') and od.OrderDate <= ('%s') group by od.OrderDate, pd.ProductID, pd.ProductName, ct.CategoryName, s.Size, cl.ColorName", startTime, endTime);
                 } else {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);

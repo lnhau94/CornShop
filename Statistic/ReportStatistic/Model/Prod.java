@@ -10,8 +10,7 @@ public class Prod {
     private int productQty;
     public Prod() {
     }
-    public Prod(String productId, String productName, String productCategory, String productSize, String productColor,
-            int productPrice, int productQty) {
+    public Prod(String productId, String productName, String productCategory, String productSize, String productColor, int productPrice, int productQty) {
         this.productId = productId;
         this.productName = productName;
         this.productCategory = productCategory;
