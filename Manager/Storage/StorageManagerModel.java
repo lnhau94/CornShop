@@ -13,15 +13,15 @@ public class StorageManagerModel {
 
     public static void getAllData(){
         storages = new ArrayList<>();
-        ResultSet rs = DAO.executeQuery("Select * from Storage");
+        ResultSet rs = DAO.executeQuery("Select id, productId, color, size, quantity from Storage");
         try{
             while (rs.next()){
                 storages.add(new Storage(
-                        rs.getInt(5),
                         rs.getInt(1),
                         rs.getInt(2),
                         rs.getInt(3),
-                        rs.getInt(4)
+                        rs.getInt(4),
+                        rs.getInt(5)
                 ));
             }
         } catch (SQLException e) {

@@ -60,21 +60,6 @@ public class PosView extends BorderPane {
         menuView = new ScrollPane(menuList);
         this.model.getProductDetails().forEach((k,v)->{
             menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
-            menuList.getChildren().add(new MenuItem(k,v));
         });
         this.setCenter(menuView);
     }
@@ -195,7 +180,7 @@ public class PosView extends BorderPane {
         }catch (NullPointerException e){
             new ErrorController().displayError("Item code is not found!!");
         }
-        priceLbl.setText(String.format("%,d",model.calculateTotalPrice()*1000));
+        priceLbl.setText(String.format("%,d",model.calculateTotalPrice()));
     }
 
     public void refreshTable(){

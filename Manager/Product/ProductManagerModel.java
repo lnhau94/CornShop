@@ -24,7 +24,9 @@ public class ProductManagerModel {
         getAllSize();
     }
     private static void getAllProduct(){
-        ResultSet rs = DAO.executeQuery("Select * from Product");
+        ResultSet rs = DAO.executeQuery(
+                "Select id, productId, productName, price, material, categoryId, brandId " +
+                "from Product");
         try{
             while(rs.next()){
                 products.add(new Product(
@@ -42,7 +44,7 @@ public class ProductManagerModel {
         }
     }
     private static void getAllColor(){
-        ResultSet rs = DAO.executeQuery("Select * from Color");
+        ResultSet rs = DAO.executeQuery("Select id, colorname, red, green, blue from Color");
         try{
             while(rs.next()){
                 colors.add(new Color(
@@ -58,7 +60,7 @@ public class ProductManagerModel {
         }
     }
     private static void getAllSize(){
-        ResultSet rs = DAO.executeQuery("Select * from Size");
+        ResultSet rs = DAO.executeQuery("Select id, size from Size");
         try{
             while(rs.next()){
                 sizes.add(new Size(

@@ -12,7 +12,7 @@ public class CategoryManagerModel {
     public static List<Category> categories;
     public static void getAllData(){
         categories = new ArrayList<>();
-        ResultSet rs = DAO.executeQuery("Select * from Category");
+        ResultSet rs = DAO.executeQuery("Select id, categoryId, categoryName from Category");
         try{
             while(rs.next()){
                 categories.add(new Category(

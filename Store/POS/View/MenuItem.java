@@ -80,7 +80,7 @@ public class MenuItem extends HBox {
             if(p.getId() == this.productId){
                 nameLbl.setText(p.getProductName());
 
-                priceLbl.setText(String.format("%,d",p.getPrice()*1000)+" VND");
+                priceLbl.setText(String.format("%,d",p.getPrice())+" VND");
 
                 materialLbl.setText(p.getMaterial());
                 break;

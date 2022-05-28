@@ -17,7 +17,7 @@ public class AccountManagerModel {
     public static void getAllData(){
         //DAO.executeQuery()
         accounts = new ArrayList<>();
-        ResultSet rs = DAO.executeQuery("Select * from Account");
+        ResultSet rs = DAO.executeQuery("Select id, username, employeeId, userpass from Account");
         try{
             while(rs.next()){
                 accounts.add(new Account(

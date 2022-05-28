@@ -12,7 +12,7 @@ public class BrandManagerModel {
     public static List<Brand> brands;
     public static void getAllData(){
         brands = new ArrayList<>();
-        ResultSet rs = DAO.executeQuery("Select * from Brand");
+        ResultSet rs = DAO.executeQuery("Select id, brandid, brandName, supplierId from Brand");
         try{
             while (rs.next()){
                 brands.add(new Brand(
