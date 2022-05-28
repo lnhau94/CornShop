@@ -15,6 +15,8 @@ public class ScreenManager {
     private Scene scene;
     private Parent root;
 
+    public ReturnOrder parentScene;
+
     public void screenReturnOrder(ActionEvent event) throws IOException {
         // FXMLLoader fxmlLoader = new FXMLLoader();
         // fxmlLoader.setLocation(new File("src/Store/ReturnOrder/View/ReturnOrder.fxml").toURI().toURL());

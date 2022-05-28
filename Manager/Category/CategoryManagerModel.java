@@ -1,6 +1,7 @@
 package Manager.Category;
 
 import Entity.DAO;
+import Entity.Entity.Brand;
 import Entity.Entity.Category;
 
 import java.sql.ResultSet;
@@ -24,5 +25,14 @@ public class CategoryManagerModel {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String findCategoryName(int id) {
+        for(Category c : categories){
+            if(c.getId() == id){
+                return c.getCategoryName();
+            }
+        }
+        return "";
     }
 }

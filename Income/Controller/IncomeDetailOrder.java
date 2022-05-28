@@ -1,4 +1,4 @@
 package Income.Controller;
 
-public class IncomeDetailOrder {
+public class IncomeDetailOrder extends MasterController {
 }

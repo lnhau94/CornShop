@@ -1,5 +1,7 @@
 package Store.ReturnOrder.Control;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +15,7 @@ import org.controlsfx.control.textfield.TextFields;
 import Entity.DAO;
 import Entity.Entity.Order;
 import Entity.Entity.OrderDetails;
+import Entity.Entity.Size;
 import Store.ReturnOrder.Model.Inform;
 import Store.ReturnOrder.Model.OldOrder;
 import javafx.animation.Animation;
@@ -23,7 +26,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,7 +40,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.Node;
 import javafx.util.converter.IntegerStringConverter;
 
 public class ReturnOrder extends ScreenManager implements Initializable {
@@ -71,6 +79,15 @@ public class ReturnOrder extends ScreenManager implements Initializable {
     @FXML
     private TableView<OldOrder> tableProduct;
 
+
+    public TableView<OldOrder> getTableProduct() {
+        return tableProduct;
+    }
+
+    public void setTableProduct(TableView<OldOrder> tableProduct) {
+        this.tableProduct = tableProduct;
+    }
+
     @FXML
     private Label countDel;
 
@@ -93,6 +110,24 @@ public class ReturnOrder extends ScreenManager implements Initializable {
     private Label totalPrice;
 
     static int countD = 0;
+
+    @Override
+    public void screenChangeOrder(ActionEvent event) throws IOException {
+        Scene scene;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(new File("src/Store/ReturnOrder/View/AddProduct.fxml").toURI().toURL());
+        Parent root = (Parent) fxmlLoader.load();
+        AddProduct baby = fxmlLoader.getController();
+        baby.setParent(this);
+        Stage stage1 = new Stage();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(new File("src/Store/ReturnOrder/View/CSS/AddProduct.css").toURI().toURL().toExternalForm());
+        stage1.setScene(scene);
+        stage1.initOwner(stage);
+        stage1.showAndWait();
+    }
+
 
     public class CustomIntegerStringConverter extends IntegerStringConverter {
         private final IntegerStringConverter converter = new IntegerStringConverter();
@@ -138,15 +173,28 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         }
     }));
 
-    ObservableList<String> listColor = FXCollections.observableArrayList();
+    ObservableList<Size> listSize = FXCollections.observableArrayList();
     ObservableList<Inform> listInfo = FXCollections.observableArrayList();
     ObservableList<OldOrder> listAddProd = FXCollections.observableArrayList();
-    ObservableList<OldOrder> listDelProd = FXCollections.observableArrayList();
+    public static ObservableList<OldOrder> listDelProd = FXCollections.observableArrayList();
 
     ObservableList<Order> orders = FXCollections.observableArrayList();
     ObservableList<OrderDetails> orderDetails = FXCollections.observableArrayList();
 
-    ObservableList<OldOrder> listOrder = FXCollections.observableArrayList();
+    public static ObservableList<OldOrder> listOrder = FXCollections.observableArrayList();
+
+    public void refreshTable() {
+        int qty=0;
+        int sum=0;
+        for (OldOrder order : listOrder) {
+            qty+=order.getProductQty();
+            sum+=order.getProductPrice();
+        }
+        totalPrice.setText(String.valueOf(sum));
+        totalQty.setText(String.valueOf(qty));
+        tableProduct.setItems(listOrder);
+        tableProduct.refresh();
+    }
 
     public void getDataOrder(String yourQuery) {
         ResultSet rs = DAO.executeQuery(String.format(yourQuery));
@@ -232,12 +280,12 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         }
     }
 
-    public void getDataColor(String yourQuery, int productId) {
-        ResultSet rs = DAO.executeQuery(String.format(yourQuery, productId));
+    public void getDataSize(String yourQuery) {
+        ResultSet rs = DAO.executeQuery(String.format(yourQuery));
         try {
             while (rs.next()) {
                 try {
-                    listColor.add(rs.getString(1));
+                    listSize.add(new Size(rs.getInt(1), rs.getString(2)));
                 } catch (SQLException e) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);
@@ -253,6 +301,7 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         }
     }
 
+
     public ObservableList<String> listIdOrder() {
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Order order : orders) {
@@ -261,17 +310,47 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         return list;
     }
 
+    public ObservableList<String> sizeList() {
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for (Size size : listSize) {
+            list.add(size.getSize());
+        }
+        return list;
+    }
 
 
     public void successChange(ActionEvent event) throws Exception {
-        if (countD == 0 && (listDelProd.size() > 0 || listAddProd.size() >= 0)) {
-            for (int i = 0; i < listDelProd.size(); i++) {
-                break;
-            }
-            for (int i = 0; i < listAddProd.size(); i++) {
-                break;
-            }
-        }
+        // try {
+        //     DAO.executeQuery(String.format("delete from ORDERDETAILS where ORDERID = '%d'", Integer.parseInt(String.copyValueOf(fieldOrderId.getText().toCharArray(), 3, fieldOrderId.getText().length() - 3))));
+        //     for (OldOrder ods : listOrder) {
+        //         DAO.executeQuery(String.format());
+        //     }
+        // } catch (NumberFormatException e) {
+        //     Alert alert = new Alert(AlertType.ERROR);
+        //     alert.setHeaderText(null);
+        //     alert.setContentText("Mã hóa đơn bạn nhập không hợp lệ !");
+        //     alert.showAndWait();
+        //     fieldOrderId.setText("");
+        // } catch (Exception e) {
+        //     Alert alert = new Alert(AlertType.ERROR);
+        //     alert.setHeaderText(null);
+        //     alert.setContentText("Mã hóa đơn bạn nhập không hợp lệ !");
+        //     alert.showAndWait();
+        //     fieldOrderId.setText("");
+        // }
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Hoàn thành đổi trả !");
+        alert.showAndWait();
+        fieldOrderId.clear();
+        listOrder.clear();
+        tableProduct.refresh();
+        nameEmp.setText("");
+        dateOrder.setText("");
+        phoneCus.setText("");
+        totalQty.setText("");
+        totalPrice.setText("");
+        countDel.setText(String.valueOf(0));
     }
 
     public void loadOrder(ActionEvent event) throws Exception {
@@ -404,15 +483,15 @@ public class ReturnOrder extends ScreenManager implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         orders.clear();
         orderDetails.clear();
+        getDataSize("select ID, [SIZE] from [SIZE]");
         getDataOrder("select ID, ORDERID, ORDERDATE, TOTALPRICE, CUSTOMER, CASHIER from ORDERS where datediff(day, ORDERDATE, getdate()) <=7");
         getDataDetails("select ID, ORDERID, PRODUCTID, COLORID, SIZEID, QUANTITY from ORDERDETAILS");
         TextFields.bindAutoCompletion(fieldOrderId, listIdOrder());
         idProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productID"));
         nameProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productName"));
         colorProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productColor"));
-        colorProduct.setCellFactory(ComboBoxTableCell.forTableColumn(listColor));
         sizeProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productSize"));
-        sizeProduct.setCellFactory(ComboBoxTableCell.forTableColumn());
+        sizeProduct.setCellFactory(ComboBoxTableCell.forTableColumn(sizeList()));
         qtyProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, Integer>("productQty"));
         qtyProduct.setCellFactory(TextFieldTableCell.forTableColumn(new CustomIntegerStringConverter()));
         priceProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, Integer>("productPrice"));
@@ -423,8 +502,7 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         totalPrice.setText("");
         countDel.setText(String.valueOf(countD));
         tableProduct.setItems(listOrder);
-        tableProduct.setEditable(true);
-        // tableProduct.getSelectionModel().getSelectedItem()
+        tableProduct.setEditable(true);        
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
