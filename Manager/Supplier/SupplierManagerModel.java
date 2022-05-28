@@ -25,4 +25,13 @@ public class SupplierManagerModel {
             throw new RuntimeException(e);
         }
     }
+
+    public static Supplier findById(int id){
+        for(Supplier s : suppliers){
+            if(s.getId()==id){
+                return s;
+            }
+        }
+        return null;
+    }
 }

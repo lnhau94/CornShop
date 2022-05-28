@@ -61,7 +61,7 @@ public class Color implements DBQuery{
     @Override
     public String toInsertQuery() {
         return "INSERT INTO COLOR VALUES(COLORNAME, RED, GREEN, BLUE) VALUES (" +
-                "'"+this.getName()+"', " +
+                "N'"+this.getName()+"', " +
                 "'"+this.getRed()+"', " +
                 "'"+this.getGreen()+"', " +
                 "'"+this.getBlue()+"'" +
@@ -71,7 +71,7 @@ public class Color implements DBQuery{
     @Override
     public String toUpdateQuery() {
         return "UPDATE COLOR SET " +
-                "NAME = '"+this.getName()+"', " +
+                "NAME = N'"+this.getName()+"', " +
                 "RED = '"+this.getRed()+"', " +
                 "GREEN = '"+this.getGreen()+"', " +
                 "BLUE = '"+this.getBlue()+"' " +

@@ -6,6 +6,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -42,6 +43,7 @@ public class ErrorController {
         }
         Dialog<ButtonType> dialogError = new Dialog<>();
         dialogError.setTitle("Error");
+        dialogError.initStyle(StageStyle.TRANSPARENT);
         dialogError.setDialogPane(error);
         dialogError.showAndWait();
     }

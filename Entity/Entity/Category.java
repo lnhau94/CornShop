@@ -40,12 +40,12 @@ public class Category implements DBQuery{
 
     @Override
     public String toInsertQuery() {
-        return "INSERT INTO CATEGORY (CATEGORYNAME) VALUES('"+this.getCategoryName()+"')";
+        return "INSERT INTO CATEGORY (CATEGORYNAME) VALUES(N'"+this.getCategoryName()+"')";
     }
 
     @Override
     public String toUpdateQuery() {
-        return "UPDATE CATEGORY SET CATEGORYNAME ='"+this.getCategoryName()+"' WHERE ID = '"+this.getId()+"'";
+        return "UPDATE CATEGORY SET CATEGORYNAME = N'"+this.getCategoryName()+"' WHERE ID = '"+this.getId()+"'";
     }
 
     @Override

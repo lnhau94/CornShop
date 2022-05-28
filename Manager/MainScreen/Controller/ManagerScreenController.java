@@ -110,4 +110,25 @@ public class ManagerScreenController {
         }
     }
 
+    public void showBrandView(ActionEvent actionEvent) {
+        try {
+            ((Stage)((Button)actionEvent.getSource()).getScene().getWindow()).setScene(
+                    new Scene(FXMLLoader.load(
+                            new File("Manager/Brand/View/BrandView.fxml").toURI().toURL()
+                    )));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void showSupplierView(ActionEvent actionEvent) {
+        try {
+        ((Stage)((Button)actionEvent.getSource()).getScene().getWindow()).setScene(
+                new Scene(FXMLLoader.load(
+                        new File("Manager/Supplier/View/SupplierView.fxml").toURI().toURL()
+                )));
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+    }
 }
