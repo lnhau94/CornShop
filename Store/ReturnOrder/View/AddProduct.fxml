@@ -19,12 +19,12 @@
             <Label alignment="CENTER" layoutX="83.0" layoutY="157.0" prefHeight="16.0" prefWidth="136.0" text="SIZE" />
             <Label alignment="CENTER" layoutX="83.0" layoutY="193.0" prefHeight="16.0" prefWidth="136.0" text="SỐ LƯỢNG" />
             <Label alignment="CENTER" layoutX="83.0" layoutY="229.0" prefHeight="16.0" prefWidth="136.0" text="GIÁ TIỀN" />
-            <TextField layoutX="249.0" layoutY="189.0" promptText="Vui lòng nhập" />
+            <TextField fx:id="qtyProd" layoutX="249.0" layoutY="189.0" promptText="Vui lòng nhập" />
             <ComboBox fx:id="colorBox" layoutX="249.0" layoutY="117.0" prefHeight="24.0" prefWidth="170.0" promptText="Chọn màu" />
             <ComboBox fx:id="sizeBox" layoutX="249.0" layoutY="153.0" prefHeight="24.0" prefWidth="170.0" promptText="Chọn size" />
             <Label fx:id="priceProd" alignment="CENTER" layoutX="249.0" layoutY="225.0" prefHeight="24.0" prefWidth="170.0" />
             <Label fx:id="header" alignment="CENTER" prefHeight="42.0" prefWidth="502.0" text="CHANGE ORDER" textAlignment="CENTER" />
-            <Button fx:id="btnAdd" layoutX="206.0" layoutY="267.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="90.0" text="Thêm" />
+            <Button fx:id="btnAdd" layoutX="206.0" layoutY="267.0" mnemonicParsing="false" onAction="#addNew" prefHeight="24.0" prefWidth="90.0" text="Thêm" />
             <Button fx:id="btnBack" layoutX="8.0" layoutY="42.0" mnemonicParsing="false" onAction="#screenReturnOrder" prefHeight="30.0" prefWidth="30.0">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">

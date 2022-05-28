@@ -27,7 +27,7 @@
                   <TableColumn fx:id="priceProduct" prefWidth="161.0" text="GIÁ TIỀN" />
               </columns>
             </TableView>
-            <Button fx:id="btnSuccess" layoutX="126.0" layoutY="117.0" mnemonicParsing="false" text="HOÀN THÀNH" />
+            <Button fx:id="btnSuccess" layoutX="126.0" layoutY="117.0" mnemonicParsing="false" onAction="#successChange" text="HOÀN THÀNH" />
             <Label fx:id="timeLabel" alignment="CENTER" layoutX="25.0" layoutY="91.0" prefHeight="26.0" prefWidth="363.0" />
             <Label layoutX="110.0" layoutY="614.0" prefHeight="16.0" prefWidth="171.0" text="NHÂN VIÊN LẬP HĐ: " />
             <Label layoutX="110.0" layoutY="651.0" prefHeight="16.0" prefWidth="171.0" text="NGÀY LẬP HĐ: " />
