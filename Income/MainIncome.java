@@ -1,5 +1,7 @@
 package Income;
 
+import Entity.Entity.Storage;
+import Income.Controller.MasterController;
 import Manager.AccountManager.AccountManagerModel;
 import Manager.Brand.BrandManagerModel;
 import Manager.Category.CategoryManagerModel;
@@ -10,6 +12,7 @@ import Manager.Supplier.SupplierManagerModel;
 import Store.POS.Control.PosController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -27,13 +30,12 @@ public class MainIncome extends Application {
     @Override
     public void start(Stage primaryStage) {
         prepareData();
-
+        MasterController.start();
         FXMLLoader fx = new FXMLLoader();
         Parent root = null;
         try {
             fx.setLocation(new File("Income/View/IncomeChoose.fxml").toURI().toURL());
             root = fx.load();
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -57,5 +59,8 @@ public class MainIncome extends Application {
         System.out.println(StorageManagerModel.storages.size());
         System.out.println(BrandManagerModel.brands.size());
         System.out.println(SupplierManagerModel.suppliers.size());
+        StorageManagerModel.storages.forEach(e -> {
+            System.out.println(e.getSizeId() +"  " +e.getColorId());
+        });
     }
 }
