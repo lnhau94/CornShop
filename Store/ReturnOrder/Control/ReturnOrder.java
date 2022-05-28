@@ -13,6 +13,7 @@ import org.controlsfx.control.textfield.TextFields;
 import Entity.DAO;
 import Entity.Entity.Order;
 import Entity.Entity.OrderDetails;
+import Entity.Entity.Size;
 import Store.ReturnOrder.Model.Inform;
 import Store.ReturnOrder.Model.OldOrder;
 import javafx.animation.Animation;
@@ -138,7 +139,7 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         }
     }));
 
-    ObservableList<String> listColor = FXCollections.observableArrayList();
+    ObservableList<Size> listSize = FXCollections.observableArrayList();
     ObservableList<Inform> listInfo = FXCollections.observableArrayList();
     ObservableList<OldOrder> listAddProd = FXCollections.observableArrayList();
     ObservableList<OldOrder> listDelProd = FXCollections.observableArrayList();
@@ -232,12 +233,12 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         }
     }
 
-    public void getDataColor(String yourQuery, int productId) {
-        ResultSet rs = DAO.executeQuery(String.format(yourQuery, productId));
+    public void getDataSize(String yourQuery) {
+        ResultSet rs = DAO.executeQuery(String.format(yourQuery));
         try {
             while (rs.next()) {
                 try {
-                    listColor.add(rs.getString(1));
+                    listSize.add(new Size(rs.getInt(1), rs.getString(2)));
                 } catch (SQLException e) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);
@@ -253,6 +254,7 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         }
     }
 
+
     public ObservableList<String> listIdOrder() {
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Order order : orders) {
@@ -261,6 +263,13 @@ public class ReturnOrder extends ScreenManager implements Initializable {
         return list;
     }
 
+    public ObservableList<String> sizeList() {
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for (Size size : listSize) {
+            list.add(size.getSize());
+        }
+        return list;
+    }
 
 
     public void successChange(ActionEvent event) throws Exception {
@@ -404,15 +413,15 @@ public class ReturnOrder extends ScreenManager implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         orders.clear();
         orderDetails.clear();
+        getDataSize("select ID, [SIZE] from [SIZE]");
         getDataOrder("select ID, ORDERID, ORDERDATE, TOTALPRICE, CUSTOMER, CASHIER from ORDERS where datediff(day, ORDERDATE, getdate()) <=7");
         getDataDetails("select ID, ORDERID, PRODUCTID, COLORID, SIZEID, QUANTITY from ORDERDETAILS");
         TextFields.bindAutoCompletion(fieldOrderId, listIdOrder());
         idProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productID"));
         nameProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productName"));
         colorProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productColor"));
-        colorProduct.setCellFactory(ComboBoxTableCell.forTableColumn(listColor));
         sizeProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, String>("productSize"));
-        sizeProduct.setCellFactory(ComboBoxTableCell.forTableColumn());
+        sizeProduct.setCellFactory(ComboBoxTableCell.forTableColumn(sizeList()));
         qtyProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, Integer>("productQty"));
         qtyProduct.setCellFactory(TextFieldTableCell.forTableColumn(new CustomIntegerStringConverter()));
         priceProduct.setCellValueFactory(new PropertyValueFactory<OldOrder, Integer>("productPrice"));
