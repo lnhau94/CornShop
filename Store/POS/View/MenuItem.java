@@ -17,10 +17,14 @@ import javafx.scene.layout.VBox;
 import javafx.util.Pair;
 
 import java.awt.*;
+
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.Flow;
+import java.util.*;
+import java.util.List;
+
 
 public class MenuItem extends HBox {
     private List<Storage> storageList;
@@ -61,7 +65,9 @@ public class MenuItem extends HBox {
         materialLbl.getStyleClass().add("menuLabel");
         colorAndSize = new VBox();
         colors = new FlowPane();
+
         colors.setHgap(5);
+
         sizes = new FlowPane();
         sizeLblList = new ArrayList<>();
         ToggleGroup gr = new ToggleGroup();
@@ -73,7 +79,9 @@ public class MenuItem extends HBox {
         for(Product p : ProductManagerModel.products){
             if(p.getId() == this.productId){
                 nameLbl.setText(p.getProductName());
+
                 priceLbl.setText(String.format("%,d",p.getPrice()*1000)+" VND");
+
                 materialLbl.setText(p.getMaterial());
                 break;
             }
@@ -99,7 +107,9 @@ public class MenuItem extends HBox {
             tmpl.setPrefSize(50,25);
             sizeLblList.add(tmpl);
         }
+
         storageLbl.setText("InStock: " + Sum);
+
 
         this.getChildren().add(nameLbl);
         this.getChildren().add(priceLbl);
@@ -118,6 +128,7 @@ public class MenuItem extends HBox {
         while(!sizes.getChildren().isEmpty()){
             sizes.getChildren().remove(0);
         }
+
         FlowPane fl = new FlowPane();
         fl.setPrefSize(320,35);
         fl.setHgap(3);
@@ -127,6 +138,7 @@ public class MenuItem extends HBox {
             }
         }
         sizes.getChildren().add(fl);
+
     }
 
     class StorageLabel extends Label{
@@ -137,10 +149,12 @@ public class MenuItem extends HBox {
         }
         private void initGUI(){
             Size sz = ProductManagerModel.findSizebyId(storage.getSizeId());
+
             this.setText(String.format("%04d: %6s:%3d",
                     storage.getId(),
                     sz.getSize().toUpperCase(Locale.ROOT),
                     storage.getQty()));
+
             this.getStyleClass().add("storageLabel");
         }
 
