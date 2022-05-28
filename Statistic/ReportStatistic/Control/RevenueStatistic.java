@@ -107,7 +107,7 @@ public class RevenueStatistic extends ScreenManager implements Initializable {
                     getData(
                             "select od.OrderDate, count(distinct od.OrderID), sum(odt.Quantity), " +
                                     "sum(distinct od.TotalPrice) " +
-                                    "from Orders od join OrderDetails odt on odt.OrderID = od.OrderID " +
+                                    "from Orders od join OrderDetails odt on odt.OrderID = od.ID " +
                                     "where od.OrderDate >=('%s') and od.OrderDate <= ('%s') " +
                                     "group by  od.OrderDate", startTime, endTime);
                     tableProduct.refresh();
@@ -159,11 +159,11 @@ public class RevenueStatistic extends ScreenManager implements Initializable {
                     endTime = dateFormat.format(finishDate);
                     listRevenue.clear();
                     getData(
-                            "select od.OrderDate, count(distinct od.OrderID), sum(odt.Quantity), " +
-                            "sum(distinct od.TotalPrice) " +
-                            "from Orders od join OrderDetails odt on odt.OrderID = od.ID " +
-                            "where od.OrderDate >=('%s') and od.OrderDate <= ('%s') " +
-                            "group by  od.OrderDate", startTime, endTime);
+                        "select od.OrderDate, count(distinct od.OrderID), sum(odt.Quantity), " +
+                        "sum(distinct od.TotalPrice) " +
+                        "from Orders od join OrderDetails odt on odt.OrderID = od.ID " +
+                        "where od.OrderDate >=('%s') and od.OrderDate <= ('%s') " +
+                        "group by  od.OrderDate", startTime, endTime);
                 } else {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);
