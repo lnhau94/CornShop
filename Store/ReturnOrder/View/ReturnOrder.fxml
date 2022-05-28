@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Store.ReturnOrder.Control.ReturnOrder">
+   <items>
+      <AnchorPane fx:id="secondPane" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="799.0">
+         <children>
+            <Label alignment="CENTER" layoutX="25.0" layoutY="63.0" prefHeight="26.0" prefWidth="363.0" text="NHẬP HÓA ĐƠN ĐỔI TRẢ" />
+            <Label alignment="CENTER" layoutX="521.0" layoutY="70.0" prefHeight="16.0" prefWidth="107.0" text="MÃ HÓA ĐƠN" />
+            <TextField fx:id="fieldOrderId" layoutX="671.0" layoutY="65.0" prefHeight="26.0" prefWidth="171.0" promptText="Nhập mã hóa đơn" />
+            <Button fx:id="btnOk" layoutX="654.0" layoutY="114.0" mnemonicParsing="false" onAction="#loadOrder" prefHeight="30.0" prefWidth="96.0" text="OK" />
+            <Button fx:id="btnClear" layoutX="766.0" layoutY="114.0" mnemonicParsing="false" onAction="#clearData" prefHeight="30.0" prefWidth="96.0" text="CLEAR" />
+            <TableView fx:id="tableProduct" layoutX="80.0" layoutY="190.0" prefHeight="402.0" prefWidth="882.0">
+              <columns>
+                <TableColumn fx:id="idProduct" prefWidth="134.0" text="MÃ SẢN PHẨM" />
+                <TableColumn fx:id="nameProduct" prefWidth="276.0" text="TÊN SẢN PHẨM" />
+                  <TableColumn fx:id="colorProduct" prefWidth="96.0" text="MÀU" />
+                  <TableColumn fx:id="sizeProduct" prefWidth="73.0" text="SIZE" />
+                  <TableColumn fx:id="qtyProduct" minWidth="0.0" onEditCommit="#editQtyColumn" prefWidth="129.0" text="SỐ LƯỢNG" />
+                  <TableColumn fx:id="priceProduct" prefWidth="173.0" text="GIÁ TIỀN" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnSuccess" layoutX="126.0" layoutY="117.0" mnemonicParsing="false" text="HOÀN THÀNH" />
+            <Label fx:id="timeLabel" alignment="CENTER" layoutX="25.0" layoutY="91.0" prefHeight="26.0" prefWidth="363.0" />
+            <Label layoutX="110.0" layoutY="614.0" prefHeight="16.0" prefWidth="171.0" text="NHÂN VIÊN LẬP HĐ: " />
+            <Label layoutX="110.0" layoutY="651.0" prefHeight="16.0" prefWidth="171.0" text="NGÀY LẬP HĐ: " />
+            <Label layoutX="110.0" layoutY="691.0" prefHeight="16.0" prefWidth="171.0" text="SỐ ĐIỆN THOẠI KH: " />
+            <Label layoutX="654.0" layoutY="614.0" prefHeight="16.0" prefWidth="148.0" text="TỔNG SỐ LƯỢNG: " />
+            <Label layoutX="654.0" layoutY="651.0" prefHeight="16.0" prefWidth="148.0" text="THÀNH TIỀN: " />
+            <Label fx:id="nameEmp" layoutX="296.0" layoutY="614.0" prefHeight="16.0" prefWidth="258.0" />
+            <Label fx:id="dateOrder" layoutX="296.0" layoutY="651.0" prefHeight="16.0" prefWidth="258.0" />
+            <Label fx:id="phoneCus" layoutX="296.0" layoutY="691.0" prefHeight="16.0" prefWidth="258.0" />
+            <Label fx:id="totalQty" layoutX="832.0" layoutY="614.0" prefHeight="16.0" prefWidth="177.0" />
+            <Label fx:id="totalPrice" layoutX="832.0" layoutY="651.0" prefHeight="16.0" prefWidth="177.0" />
+            <Label fx:id="header" alignment="CENTER" layoutY="-1.0" prefHeight="42.0" prefWidth="1034.0" text="RETURN ORDER" textAlignment="CENTER" />
+            <Button fx:id="btnAdd" layoutX="318.0" layoutY="141.0" mnemonicParsing="false" onAction="#screenChangeOrder" prefHeight="24.0" prefWidth="107.0" text="THÊM" />
+            <Button fx:id="btnDel" layoutX="432.0" layoutY="141.0" mnemonicParsing="false" onAction="#delCol" prefHeight="24.0" prefWidth="107.0" text="XÓA" />
+            <Label layoutX="844.0" layoutY="165.0" prefHeight="16.0" prefWidth="77.0" text="ĐÃ XÓA: " />
+            <Label fx:id="countDel" layoutX="943.0" layoutY="165.0" prefHeight="16.0" prefWidth="77.0" />
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>
