@@ -20,8 +20,8 @@
             <TableView fx:id="tableProduct" layoutX="22.0" layoutY="210.0" prefHeight="401.0" prefWidth="991.0">
                <columns>
                   <TableColumn fx:id="idProduct" prefWidth="116.0" text="MÃ SẢN PHẨM" />
-                  <TableColumn fx:id="nameProduct" prefWidth="250.0" text="TÊN SẢN PHẨM" />
-                  <TableColumn fx:id="catProduct" minWidth="0.0" prefWidth="217.0" text="LOẠI SẢN PHẨM" />
+                  <TableColumn fx:id="nameProduct" prefWidth="340.0" text="TÊN SẢN PHẨM" />
+                  <TableColumn fx:id="catProduct" minWidth="0.0" prefWidth="127.0" text="LOẠI SẢN PHẨM" />
                   <TableColumn fx:id="sizeProduct" prefWidth="61.0" text="SIZE" />
                   <TableColumn fx:id="colorProduct" prefWidth="105.0" text="MÀU" />
                   <TableColumn fx:id="priceProduct" prefWidth="141.0" text="GIÁ TIỀN" />
