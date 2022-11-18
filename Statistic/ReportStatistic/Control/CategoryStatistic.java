@@ -16,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -49,12 +50,17 @@ public class CategoryStatistic extends ScreenManager implements Initializable {
     @FXML
     private TableView<Cate> tableProduct;
 
+
+    @FXML
+    private PieChart cateChart;
+
     public static String startTime = "";
     public static String endTime = "";
     public static LocalDate beginTime = null;
     public static LocalDate lastTime = null;
 
     ObservableList<Cate> listCate = FXCollections.observableArrayList();
+    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -77,6 +83,9 @@ public class CategoryStatistic extends ScreenManager implements Initializable {
             alert.setContentText("Không thể liên kết để lấy dữ liệu !");
             alert.showAndWait();
         }
+        pieChartData.clear();
+        listCate.forEach(e->pieChartData.add(new PieChart.Data(e.getCategoryName(),e.getCategoryQty())));
+        cateChart.setData(pieChartData);
     }
 
     public void checkDate(ActionEvent event) throws Exception {
@@ -168,6 +177,7 @@ public class CategoryStatistic extends ScreenManager implements Initializable {
             listCate.clear();
         }
         tableProduct.setItems(listCate);
+
     }
     
 }

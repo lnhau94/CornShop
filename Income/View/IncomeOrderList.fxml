@@ -24,7 +24,7 @@
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Tired/CNPMCoffee/Icon/backnow.png" />
+                  <Image url="@../../Icon/backnow.png" />
                </image>
             </ImageView>
          </graphic>
