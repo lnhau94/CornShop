@@ -1,6 +1,7 @@
 #root {
     -fx-font-weight: bold;
     -fx-font-size: 13px;
+    -fx-background-color: linear-gradient(from 0px 0px to 100px 400px, #ffc234,#ffffff);
 }
 
 #header {

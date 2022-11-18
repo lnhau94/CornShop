@@ -48,7 +48,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" styleClass="button-bc">
                <image>
-                  <Image url="@../../../Tired/CNPMCoffee/Icon/backnow.png" />
+                  <Image url="@../../Icon/backnow.png" />
                </image>
             </ImageView>
          </graphic>

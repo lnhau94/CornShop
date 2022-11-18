@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +11,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Statistic.ReportStatistic.Control.ProductStatistic">
+<SplitPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Statistic.ReportStatistic.Control.ProductStatistic">
    <items>
       <AnchorPane fx:id="secondPane" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="799.0">
          <children>
@@ -17,7 +20,7 @@
             <Button fx:id="btnProduct" layoutX="414.0" layoutY="159.0" mnemonicParsing="false" onAction="#screenProductStatistic" prefHeight="24.0" prefWidth="177.0" text="SẢN PHẨM" />
             <Button fx:id="btnCategory" layoutX="626.0" layoutY="159.0" mnemonicParsing="false" onAction="#screenCategoryStatistic" prefHeight="24.0" prefWidth="177.0" text="THEO LOẠI" />
             <Button fx:id="btnRevenue" layoutX="204.0" layoutY="159.0" mnemonicParsing="false" onAction="#screenRevenueStatistic" prefHeight="24.0" prefWidth="177.0" text="DOANH THU" />
-            <TableView fx:id="tableProduct" layoutX="22.0" layoutY="210.0" prefHeight="401.0" prefWidth="991.0">
+            <TableView fx:id="tableProduct" layoutX="23.0" layoutY="354.0" prefHeight="401.0" prefWidth="991.0">
                <columns>
                   <TableColumn fx:id="idProduct" prefWidth="116.0" text="MÃ SẢN PHẨM" />
                   <TableColumn fx:id="nameProduct" prefWidth="340.0" text="TÊN SẢN PHẨM" />
@@ -33,6 +36,14 @@
             <Button fx:id="btnOk" layoutX="388.0" layoutY="76.0" mnemonicParsing="false" onAction="#checkDate" prefHeight="24.0" prefWidth="105.0" text="OK" />
             <Button fx:id="btnClear" layoutX="503.0" layoutY="76.0" mnemonicParsing="false" onAction="#clearDate" prefHeight="24.0" prefWidth="105.0" text="CLEAR" />
             <Label fx:id="header" alignment="CENTER" layoutX="0.0" layoutY="-5.0" prefHeight="50.0" prefWidth="1034.0" text="PRODUCT STATISTIC" textAlignment="CENTER" />
+            <BarChart fx:id="productChart" layoutX="190.0" layoutY="198.0" prefHeight="148.0" prefWidth="646.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
          </children>
       </AnchorPane>
    </items>

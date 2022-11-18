@@ -11,7 +11,7 @@
     <content>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="420.0" styleClass="dialogDelete">
          <children>
-            <Label prefHeight="31.0" prefWidth="420.0" styleClass="header" text="Delete" />
+            <Label layoutX="12.0" layoutY="-1.0" prefHeight="31.0" prefWidth="396.0" styleClass="header" text="Delete Warning" />
             <ImageView fitHeight="117.0" fitWidth="122.0" layoutX="152.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Icon/alert.png" />

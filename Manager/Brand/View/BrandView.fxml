@@ -8,9 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Brand.Controller.BrandManager">
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../Application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Brand.Controller.BrandManager">
    <children>
-      <TableView fx:id="empTab" editable="true" layoutX="17.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="288.0" prefWidth="966.0" stylesheets="@../../Application.css">
+      <TableView fx:id="brandTab" editable="true" layoutX="17.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="288.0" prefWidth="966.0" stylesheets="@../../Application.css">
          <columns>
             <TableColumn fx:id="noCol" maxWidth="299.54699897766113" minWidth="70.0" prefWidth="254.73550605773926" resizable="false" text="No" />
             <TableColumn fx:id="idCol" minWidth="100.0" prefWidth="370.7644958496094" resizable="false" text="Brand ID" />
@@ -21,7 +21,7 @@
          </columnResizePolicy>
       </TableView>
       <Label fx:id="header" layoutX="19.0" layoutY="17.0" prefHeight="40.0" prefWidth="965.0" styleClass="header" stylesheets="@../../Application.css" text="Brand Manager" />
-      <Button layoutX="330.0" layoutY="433.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
+      <Button layoutX="330.0" layoutY="433.0" mnemonicParsing="false" onAction="#addNewBrand" prefHeight="46.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,7 +30,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="456.0" layoutY="433.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
+      <Button layoutX="456.0" layoutY="433.0" mnemonicParsing="false" onAction="#editBrand" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,7 +39,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="576.0" layoutY="433.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
+      <Button layoutX="576.0" layoutY="433.0" mnemonicParsing="false" onAction="#removeBrand" prefHeight="55.0" prefWidth="92.0" styleClass="controlBtn" stylesheets="@../../Application.css">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -1,6 +1,7 @@
 package Main;
 
 import Entity.Entity.Employee;
+import Income.Controller.MasterController;
 import Manager.AccountManager.AccountManagerModel;
 import Manager.Brand.BrandManagerModel;
 import Manager.Category.CategoryManagerModel;
@@ -49,6 +50,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         prepareData();
+        MasterController.start();
         createControlBar(stage);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("Corn Shop Clothing");

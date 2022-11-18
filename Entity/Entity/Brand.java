@@ -51,14 +51,14 @@ public class Brand implements DBQuery{
     @Override
     public String toInsertQuery() {
         return "INSERT INTO BRAND(BRANDNAME,SUPPLIERID) VALUES" +
-                "('"+this.getBrandName()+"', " +
+                "(N'"+this.getBrandName()+"', " +
                 "'"+this.getSupplierId()+"')";
     }
 
     @Override
     public String toUpdateQuery() {
         return "UPDATE BRAND SET " +
-                "BRANDNAME = '"+this.getBrandName()+"', " +
+                "BRANDNAME = N'"+this.getBrandName()+"', " +
                 "SUPPLIERID = '"+this.getSupplierId()+"' " +
                 "WHERE ID = '"+this.getId()+"'";
     }

@@ -3,15 +3,15 @@ package Entity;
 import java.sql.*;
 
 public class DAO {
-//    private static String connectURL = "jdbc:sqlserver://;" +
-//            "serverName=localhost;" +
-//            "databaseName=cornshop;" +
-//            "encrypt=true;trustServerCertificate=true";
-//
-//    private static String DBuser = "admin";
-//    private static String DBpass = "123456";
+    private static String connectURL = "jdbc:sqlserver://;" +
+            "serverName=localhost;" +
+            "databaseName=cornshop;" +
+            "encrypt=true;trustServerCertificate=true";
 
+    private static String DBuser = "admin";
+    private static String DBpass = "123456";
 
+/*
 
     private static String connectURL = "jdbc:sqlserver://;" +
             "serverName=;" +
@@ -20,6 +20,8 @@ public class DAO {
     private static String DBuser = "admin";
     private static String DBpass = "1248163264128";
 
+
+ */
 
 
     private static Connection connect;

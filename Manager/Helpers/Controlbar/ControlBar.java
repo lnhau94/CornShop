@@ -21,12 +21,12 @@ import java.net.MalformedURLException;
 
 public class ControlBar extends VBox {
 
-    ToggleButton saleBtn, EoDsBtn, dataBtn, salaryBtn, ingredientBtn;
+    ToggleButton saleBtn, EoDsBtn, dataBtn, returnOrderBtn, ingredientBtn;
     Scene salesScreen;
     Scene eodScreen;
     Scene dataManagerScreen;
     Scene ingredientManagerScreen;
-    Scene salaryManagerScreen;
+    Scene returnOrderScreen;
     Scene loginScreen;
     Stage owner;
     Button logoutBtn,exitBtn;
@@ -47,6 +47,7 @@ public class ControlBar extends VBox {
             }
             case 1 -> {
                 this.getChildren().add(saleBtn);
+                this.getChildren().add(returnOrderBtn);
                 this.getChildren().add(EoDsBtn);
                 saleBtn.setSelected(true);
                 owner.setScene(salesScreen);
@@ -60,6 +61,7 @@ public class ControlBar extends VBox {
             }
             case 3 -> {
                 this.getChildren().add(saleBtn);
+                this.getChildren().add(returnOrderBtn);
                 this.getChildren().add(EoDsBtn);
                 this.getChildren().add(dataBtn);
                 this.getChildren().add(ingredientBtn);
@@ -75,7 +77,7 @@ public class ControlBar extends VBox {
         saleBtn = new ToggleButton("Sale");
         EoDsBtn = new ToggleButton("CloseStore");
         dataBtn = new ToggleButton("Data");
-        salaryBtn = new ToggleButton("Salary");
+        returnOrderBtn = new ToggleButton("Returns");
         ingredientBtn = new ToggleButton("Ingredients");
         salesScreen = new Scene(new PosController().getView());
         try {
@@ -88,6 +90,11 @@ public class ControlBar extends VBox {
                             .toURI().toURL()));
             eodScreen.getStylesheets().add(new File("Statistic/ReportEndDay/View/CSS/ReportEndDay.css")
                     .toURI().toURL().toExternalForm());
+            returnOrderScreen = new Scene(FXMLLoader.load(
+                    new File("Store/ReturnOrder/View/ReturnOrder.fxml")
+                            .toURI().toURL()));
+            returnOrderScreen.getStylesheets().add(new File("Store/ReturnOrder/View/CSS/ReturnOrder.css")
+                    .toURI().toURL().toExternalForm());
 
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -99,11 +106,15 @@ public class ControlBar extends VBox {
 
 
         ToggleGroup gr = new ToggleGroup();
+        gr.selectedToggleProperty().addListener((obsVal, oldVal, newVal) -> {
+            if (newVal == null)
+                oldVal.setSelected(true);
+        });
         saleBtn.setToggleGroup(gr);
         EoDsBtn.setToggleGroup(gr);
         dataBtn.setToggleGroup(gr);
         ingredientBtn.setToggleGroup(gr);
-        salaryBtn.setToggleGroup(gr);
+        returnOrderBtn.setToggleGroup(gr);
 
         logoutBtn = new Button("Logout");
 
@@ -111,11 +122,6 @@ public class ControlBar extends VBox {
 
 
         createHandleEvent();
-
-
-
-
-        //this.setRotate(90);
 
     }
 
@@ -164,9 +170,9 @@ public class ControlBar extends VBox {
             img = new ImageView(new Image(new FileInputStream("Icon/salary2.png")));
             img.setFitHeight(25);
             img.setFitWidth(25);
-            salaryBtn.setGraphic(img);
-            salaryBtn.setTooltip(new Tooltip("Go to Salary Management Screen"));
-            salaryBtn.setText("");
+            returnOrderBtn.setGraphic(img);
+            returnOrderBtn.setTooltip(new Tooltip("Go to Salary Management Screen"));
+            returnOrderBtn.setText("");
         } catch (FileNotFoundException e) {
             //throw new RuntimeException(e);
         }
@@ -218,8 +224,8 @@ public class ControlBar extends VBox {
             //changeLocation();
 
         });
-        salaryBtn.setOnAction(e->{
-            owner.setScene(salaryManagerScreen);
+        returnOrderBtn.setOnAction(e->{
+            owner.setScene(returnOrderScreen);
         });
         ingredientBtn.setOnAction(e->{
             owner.setScene(ingredientManagerScreen);

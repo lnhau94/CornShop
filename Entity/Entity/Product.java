@@ -81,9 +81,9 @@ public class Product implements DBQuery{
     @Override
     public String toInsertQuery() {
         return "INSERT INTO PRODUCT(PRODUCTNAME, PRICE, MATERIAL, CATEGORYID, BRANDID) VALUES(" +
-                "'"+this.getProductName()+"', " +
+                "N'"+this.getProductName()+"', " +
                 "'"+this.getPrice()+"', " +
-                "'"+this.getMaterial()+"', " +
+                "N'"+this.getMaterial()+"', " +
                 "'"+this.getCategoryId()+"', " +
                 "'"+this.getBrandId()+"' " +
                 ")";
@@ -92,9 +92,9 @@ public class Product implements DBQuery{
     @Override
     public String toUpdateQuery() {
         return "UPDATE PRODUCT SET " +
-                "PRODUCTNAME = '"+this.getProductName()+"', " +
+                "PRODUCTNAME = N'"+this.getProductName()+"', " +
                 "PRICE = '"+this.getPrice()+"', " +
-                "MATERIAL = '"+this.getMaterial()+"', " +
+                "MATERIAL = N'"+this.getMaterial()+"', " +
                 "CATEGORYID = '"+this.getCategoryId()+"', " +
                 "BRANDID = '"+this.getBrandId()+"' " +
                 "WHERE ID = '"+this.getId()+"'";

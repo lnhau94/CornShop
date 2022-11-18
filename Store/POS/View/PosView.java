@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Callback;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.awt.*;
@@ -136,6 +137,7 @@ public class PosView extends BorderPane {
         colorCol.setPrefWidth(50);
         sizeCol.setPrefWidth(50);
         qtyCol.setPrefWidth(35);
+
 
         indexCol.setCellValueFactory(e->
                 new SimpleStringProperty(String.valueOf(model.getCurrentChoices().indexOf(e.getValue())+1)));

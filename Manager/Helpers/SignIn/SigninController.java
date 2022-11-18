@@ -28,6 +28,8 @@ public class SigninController {
 
     @FXML
     void checkSignIn(ActionEvent event) {
+        userTxf.setText("lnhau");
+        passTxf.setText("123");
         String user = userTxf.getText();
         String pass = passTxf.getText();
         Alert a = new Alert(Alert.AlertType.ERROR);

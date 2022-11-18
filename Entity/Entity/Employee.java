@@ -71,20 +71,20 @@ public class Employee implements DBQuery{
     @Override
     public String toInsertQuery() {
         return "INSERT INTO EMPLOYEE (EMPLOYEENAME, PHONE, POSITION, GENDER) VALUES(" +
-                "'"+this.getEmployeeName()+"', " +
+                "N'"+this.getEmployeeName()+"', " +
                 "'"+this.getPhone()+"', " +
-                "'"+this.getPosition()+"', " +
-                "'"+this.getGender()+"' " +
+                "N'"+this.getPosition()+"', " +
+                "N'"+this.getGender()+"' " +
                 ")";
     }
 
     @Override
     public String toUpdateQuery() {
         return "UPDATE EMPLOYEE SET " +
-                "EMPLOYEENAME = '"+this.getEmployeeName()+"', " +
+                "EMPLOYEENAME = N'"+this.getEmployeeName()+"', " +
                 "PHONE = '"+this.getPhone()+"', " +
-                "POSITION = '"+this.getPosition()+"', " +
-                "GENDER = '"+this.getGender()+"' " +
+                "POSITION = N'"+this.getPosition()+"', " +
+                "GENDER = N'"+this.getGender()+"' " +
                 "WHERE ID = '"+this.getId()+"'";
     }
 

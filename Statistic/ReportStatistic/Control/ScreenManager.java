@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class ScreenManager {
     private Stage stage;
     private Scene scene;
-    private Parent root;
+    public Parent root;
 
     public void screenRevenueStatistic(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();

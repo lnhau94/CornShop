@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="641.0" prefWidth="1263.0" stylesheets="@../../Manager/Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Income.Controller.IncomeChoose">
+<AnchorPane prefHeight="641.0" prefWidth="1263.0" stylesheets="@../../Manager/Application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Income.Controller.IncomeChoose">
    <children>
       <TableView fx:id="tableOrder" layoutX="682.0" layoutY="106.0" prefHeight="482.0" prefWidth="559.0">
          <columns>
@@ -34,7 +34,7 @@
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Tired/CNPMCoffee/Icon/backnow.png" />
+                  <Image url="@../../Icon/backnow.png" />
                </image>
             </ImageView>
          </graphic>
@@ -43,7 +43,7 @@
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" styleClass="button-bc">
                <image>
-                  <Image url="@../../../Tired/CNPMCoffee/Icon/next.png" />
+                  <Image url="@../../Icon/next.png" />
                </image>
             </ImageView>
          </graphic>
@@ -52,7 +52,7 @@
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Tired/CNPMCoffee/Icon/delete.png" />
+                  <Image url="@../../Icon/delete.png" />
                </image>
             </ImageView>
          </graphic>

@@ -30,12 +30,12 @@ public class ScreenManager {
 
     public void screenChangeOrder(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(new File("src/Store/ReturnOrder/View/AddProduct.fxml").toURI().toURL());
+        fxmlLoader.setLocation(new File("Store/ReturnOrder/View/AddProduct.fxml").toURI().toURL());
         root = (Parent) fxmlLoader.load();
         Stage stage1 = new Stage();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        scene.getStylesheets().add(new File("src/Store/ReturnOrder/View/CSS/AddProduct.css").toURI().toURL().toExternalForm());
+        scene.getStylesheets().add(new File("Store/ReturnOrder/View/CSS/AddProduct.css").toURI().toURL().toExternalForm());
         stage1.setScene(scene);
         stage1.initOwner(stage);
         stage1.showAndWait();
